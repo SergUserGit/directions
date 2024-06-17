@@ -6,14 +6,33 @@ function myFuncClick() {
 
   let arrayPlanet = [];
   const dateSun = {
-    planet: "sun",
+    planet: "Сонце",
     znZod: "Рак",
     degr: 13,
     hours: 57,
   };
   arrayPlanet.push(dateSun);
 
-  for (a = 0; a < arrayPlanet.length; a += 1) {}
+  for (a = 0; a < arrayPlanet.length; a += 1) {
+    const curElem = arrayPlanet[a];
+    const curArrayObj = getNewDateArray(
+      curElem.planet,
+      curElem.znZod,
+      curElem.degr,
+      curElem.hours,
+      countOfYear
+    );
+    for (b = 0; b < curArrayObj.length; b += 1) {
+      const curElem = curArrayObj[b];
+      console.log("Планета - " + curElem.planetObj);
+      console.log("Год - " + curElem.yearObj);
+      console.log("Месяц - " + curElem.monthObj);
+      console.log("Знак зодиака - " + curElem.znZodObj);
+      console.log("Градусы - " + curElem.degrObj);
+      console.log("Часы - " + curElem.hoursObj);
+      console.log("**********************************");
+    }
+  }
 }
 
 function getNewDateArray(planet, znZod, degr, hours, countOfYear) {
