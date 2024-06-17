@@ -2,7 +2,7 @@ const myButton = document.querySelector(".start-button");
 myButton.addEventListener("click", myFuncClick);
 
 function myFuncClick() {
-  let countOfYear = 10;
+  let countOfYear = 38;
 
   let arrayPlanet = [];
   const dateSun = {
