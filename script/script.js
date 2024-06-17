@@ -13,6 +13,24 @@ function myFuncClick() {
   };
   arrayPlanet.push(dateSun);
 
+  const dateMon = {
+    planet: "Місяць",
+    znZod: "Рак",
+    degr: 4,
+    hours: 9,
+  };
+  arrayPlanet.push(dateMon);
+  const dateVen = {
+    planet: "Венера",
+    znZod: "Лев",
+    degr: 23,
+    hours: 52,
+  };
+
+  arrayPlanet.push(dateVen);
+
+  let arrayTotal = [];
+
   for (a = 0; a < arrayPlanet.length; a += 1) {
     const curElem = arrayPlanet[a];
     const curArrayObj = getNewDateArray(
@@ -22,17 +40,39 @@ function myFuncClick() {
       curElem.hours,
       countOfYear
     );
+
     for (b = 0; b < curArrayObj.length; b += 1) {
       const curElem = curArrayObj[b];
-      console.log("Планета - " + curElem.planetObj);
-      console.log("Год - " + curElem.yearObj);
-      console.log("Месяц - " + curElem.monthObj);
-      console.log("Знак зодиака - " + curElem.znZodObj);
-      console.log("Градусы - " + curElem.degrObj);
-      console.log("Часы - " + curElem.hoursObj);
-      console.log("**********************************");
+      arrayTotal.push(curElem);
     }
   }
+
+  const newElemets = document.querySelectorAll(".directions-list > li");
+  for (const element of newElemets) {
+    element.remove();
+  }
+
+  const aspectItems = arrayTotal.map((el) => {
+    const newItem = document.createElement("li");
+    newItem.textContent =
+      "Планета - " +
+      el.planetObj +
+      ", год - " +
+      el.yearObj +
+      ", месяц - " +
+      el.monthObj +
+      ", знак зодиака - " +
+      el.znZodObj +
+      ", градусы - " +
+      el.degrObj +
+      ", часы - " +
+      el.hoursObj;
+    newItem.classList.add("directions-item");
+    return newItem;
+  });
+
+  const aspectsList = document.querySelector(".directions-list");
+  aspectsList.append(...aspectItems);
 }
 
 function getNewDateArray(planet, znZod, degr, hours, countOfYear) {
