@@ -13,18 +13,38 @@ function myFuncClick() {
   };
   arrayPlanet.push(dateSun);
 
-  for (let i = 0; i < arrayPlanet.length; i += 1) {
-    const planet = arrayPlanet[i];
-  }
-
-  for (let i = 1; i <= countOfYear; i += 1) {
-    console.log(i);
-  }
+  for (a = 0; a < arrayPlanet.length; a += 1) {}
 }
 
 function getNewDateArray(planet, znZod, degr, hours, countOfYear) {
-  const countOfMonth = countOfYear * 12;
-  for (let i = 1; i < countOfMonth; i += 1) {}
+  let periodArray = [];
+
+  for (let i = 1; i <= countOfYear; i += 1) {
+    for (let b = 1; b <= 12; b += 1) {
+      const arraySize = periodArray.length;
+      if (arraySize === 0) {
+        paramZnZod = znZod;
+        paramDegr = degr;
+        paramHours = hours;
+      } else {
+        paramZnZod = periodArray[arraySize - 1].znZodObj;
+        paramDegr = periodArray[arraySize - 1].degrObj;
+        paramHours = periodArray[arraySize - 1].hoursObj;
+      }
+      const objDate = getNewDate(planet, paramZnZod, paramDegr, paramHours);
+      const dateOfDegr = {
+        planetObj: planet,
+        yearObj: i,
+        monthObj: b,
+        znZodObj: objDate.newZnZodiak,
+        degrObj: objDate.newDgr,
+        hoursObj: objDate.newHrs,
+      };
+      periodArray.push(dateOfDegr);
+    }
+  }
+
+  return periodArray;
 }
 
 function getNewDate(planet, znZod, degr, hours) {
@@ -47,6 +67,15 @@ function getNewDate(planet, znZod, degr, hours) {
       newZnZod = getNextZnak(znZod);
     }
   }
+
+  const newObj = {
+    newPlanet: planet,
+    newZnZodiak: newZnZod,
+    newDgr: newDegr,
+    newHrs: newHours,
+  };
+
+  return newObj;
 }
 
 function getNextZnak(znZod) {
