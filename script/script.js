@@ -11,6 +11,7 @@ function myFuncClick() {
     degr: 13,
     hours: 57,
   };
+  changeElArOne(dateSun);
   arrayPlanet.push(dateSun);
 
   const dateMon = {
@@ -19,14 +20,16 @@ function myFuncClick() {
     degr: 4,
     hours: 9,
   };
+  changeElArOne(dateMon);
   arrayPlanet.push(dateMon);
+
   const dateVen = {
     planet: "Венера",
     znZod: "Лев",
     degr: 23,
     hours: 52,
   };
-
+  changeElArOne(dateVen);
   arrayPlanet.push(dateVen);
 
   let arrayTotal = [];
@@ -47,7 +50,23 @@ function myFuncClick() {
     }
   }
 
-  const newElemets = document.querySelectorAll(".directions-list > li");
+  for (let i = 0; i < arrayPlanet.length; i += 1) {
+    for (let b = 0; b < arrayTotal.length; b += 1) {
+      const elemOne = arrayPlanet[i];
+      const elemTwo = arrayTotal[b];
+      if (elemOne.planet === elemTwo.planetObj) {
+        continue;
+      }
+
+      const difAsp = getDiffDegr(
+        elemOne.degr,
+        elemTwo.degrObj,
+        elemOne.hours,
+        elemTwo.hoursObj
+      );
+    }
+  }
+  /*  const newElemets = document.querySelectorAll(".directions-list > li");
   for (const element of newElemets) {
     element.remove();
   }
@@ -72,7 +91,15 @@ function myFuncClick() {
   });
 
   const aspectsList = document.querySelector(".directions-list");
-  aspectsList.append(...aspectItems);
+  aspectsList.append(...aspectItems);*/
+}
+
+function changeElArOne(elem) {
+  elem.degr = getDegr(elem.znZod) + elem.degr;
+}
+
+function changeElArTwo(elem) {
+  elem.degrObj = getDegr(elem.znZodObj) + elem.degrObj;
 }
 
 function getNewDateArray(planet, znZod, degr, hours, countOfYear) {
@@ -99,6 +126,7 @@ function getNewDateArray(planet, znZod, degr, hours, countOfYear) {
         degrObj: objDate.newDgr,
         hoursObj: objDate.newHrs,
       };
+      changeElArTwo(dateOfDegr);
       periodArray.push(dateOfDegr);
     }
   }
@@ -163,4 +191,57 @@ function getNextZnak(znZod) {
   } else if (znZod === "Риби") {
     return "Овен";
   }
+}
+
+function getDiffDegr(degrOne, degrTwo, minOne, minTwo) {
+  if (degrOne >= degrTwo) {
+    if (minOne < minTwo) {
+      return degrOne - degrTwo - 1;
+    } else {
+      return degrOne - degrTwo;
+    }
+  } else {
+    if (minTwo < minOne) {
+      return degrTwo - degrOne - 1;
+    } else {
+      return degrTwo - degrOne;
+    }
+  }
+}
+
+function getDegr(znZodiak) {
+  if (znZodiak === "Овен") {
+    return 0;
+  }
+  if (znZodiak === "Тілець") {
+    return 30;
+  }
+  if (znZodiak === "Близнюки") {
+    return 60;
+  }
+  if (znZodiak === "Рак") {
+    return 90;
+  }
+  if (znZodiak === "Лев") {
+    return 120;
+  }
+  if (znZodiak === "Діва") {
+    return 150;
+  }
+  if (znZodiak === "Терези") {
+    return 180;
+  }
+  if (znZodiak === "Скорпіон") {
+    return 210;
+  }
+  if (znZodiak === "Стрілець") {
+    return 240;
+  }
+  if (znZodiak === "Козеріг") {
+    return 270;
+  }
+  if (znZodiak === "Водолій") {
+    return 300;
+  }
+  return 330;
 }
