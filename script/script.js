@@ -96,6 +96,60 @@ function myFuncClick() {
 
   arrayPlanet.push(datePluton);
 
+  const dateHouseOne = {
+    planet: "Дом №1",
+    znZod: "Діва",
+    degr: 16,
+    hours: 17,
+  };
+
+  arrayPlanet.push(dateHouseOne);
+
+  const dateHouseTwo = {
+    planet: "Дом №2",
+    znZod: "Терези",
+    degr: 8,
+    hours: 10,
+  };
+
+  arrayPlanet.push(dateHouseTwo);
+
+  const dateHouseThree = {
+    planet: "Дом №3",
+    znZod: "Скорпіон",
+    degr: 6,
+    hours: 29,
+  };
+
+  arrayPlanet.push(dateHouseThree);
+
+  const dateHouseFour = {
+    planet: "Дом №4",
+    znZod: "Стрілець",
+    degr: 11,
+    hours: 49,
+  };
+
+  arrayPlanet.push(dateHouseFour);
+
+  const dateHouseFive = {
+    planet: "Дом №5",
+    znZod: "Козеріг",
+    degr: 19,
+    hours: 18,
+  };
+
+  arrayPlanet.push(dateHouseFive);
+
+  const dateHouseSix = {
+    planet: "Дом №6",
+    znZod: "Водолій",
+    degr: 21,
+    hours: 0,
+  };
+
+  arrayPlanet.push(dateHouseSix);
+
   let arrayTotal = [];
 
   for (a = 0; a < arrayPlanet.length; a += 1) {
