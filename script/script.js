@@ -50,6 +50,8 @@ function myFuncClick() {
     }
   }
 
+  let dateAspect = [];
+
   for (let i = 0; i < arrayPlanet.length; i += 1) {
     for (let b = 0; b < arrayTotal.length; b += 1) {
       const elemOne = arrayPlanet[i];
@@ -64,6 +66,42 @@ function myFuncClick() {
         elemOne.hours,
         elemTwo.hoursObj
       );
+
+      const tekAspect = getAspect(difAsp);
+      if (tekAspect !== "") {
+        const keyOne =
+          elemOne.planet +
+          "_" +
+          elemTwo.planetObj +
+          "_" +
+          elemTwo.yearObj +
+          "_" +
+          elemTwo.monthObj;
+        const keyTwo =
+          elemTwo.planetObj +
+          "_" +
+          elemOne.planet +
+          "_" +
+          elemTwo.yearObj +
+          "_" +
+          elemTwo.monthObj;
+
+        const findOneKey = dateAspect.find((zn) => zn.key === keyOne);
+        const findTwoKey = dateAspect.find((zn) => zn.key === keyTwo);
+        if (findOneKey === undefined && findTwoKey === undefined) {
+          const newObj = {
+            key:
+              elemOne.planet +
+              "_" +
+              elemTwo.planetObj +
+              "_" +
+              elemTwo.yearObj +
+              "_" +
+              elemTwo.monthObj,
+          };
+          dateAspect.push(newObj);
+        }
+      }
     }
   }
   /*  const newElemets = document.querySelectorAll(".directions-list > li");
@@ -244,4 +282,23 @@ function getDegr(znZodiak) {
     return 300;
   }
   return 330;
+}
+
+function getAspect(diffDegr) {
+  if (diffDegr >= 58 && diffDegr <= 62) {
+    return "cекстиль";
+  }
+  if (diffDegr >= 118 && diffDegr <= 122) {
+    return "тригон";
+  }
+  if (diffDegr >= -2 && diffDegr <= 2) {
+    return "з'єднання";
+  }
+  if (diffDegr >= 88 && diffDegr <= 92) {
+    return "квадратура";
+  }
+  if (diffDegr >= 178 && diffDegr <= 182) {
+    return "оппозиція";
+  }
+  return "";
 }
