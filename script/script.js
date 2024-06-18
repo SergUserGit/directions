@@ -2,16 +2,35 @@ const myButton = document.querySelector(".start-button");
 myButton.addEventListener("click", myFuncClick);
 
 function myFuncClick() {
-  let countOfYear = 38;
+  let countOfYear = 37;
 
   let arrayPlanet = [];
+
+  const dateMars = {
+    planet: "Марс",
+    znZod: "Козеріг",
+    degr: 18,
+    hours: 48,
+  };
+
+  arrayPlanet.push(dateMars);
+
+  const dateMerk = {
+    planet: "Меркурій",
+    znZod: "Лев",
+    degr: 5,
+    hours: 56,
+  };
+
+  arrayPlanet.push(dateMerk);
+
   const dateSun = {
     planet: "Сонце",
     znZod: "Рак",
     degr: 13,
     hours: 57,
   };
-  changeElArOne(dateSun);
+
   arrayPlanet.push(dateSun);
 
   const dateMon = {
@@ -20,7 +39,7 @@ function myFuncClick() {
     degr: 4,
     hours: 9,
   };
-  changeElArOne(dateMon);
+
   arrayPlanet.push(dateMon);
 
   const dateVen = {
@@ -29,8 +48,53 @@ function myFuncClick() {
     degr: 23,
     hours: 52,
   };
-  changeElArOne(dateVen);
+
   arrayPlanet.push(dateVen);
+
+  const dateSaturn = {
+    planet: "Сатурн",
+    znZod: "Стрілець",
+    degr: 3,
+    hours: 51,
+  };
+
+  arrayPlanet.push(dateSaturn);
+
+  const dateUpiter = {
+    planet: "Юпітер",
+    znZod: "Риби",
+    degr: 22,
+    hours: 47,
+  };
+
+  arrayPlanet.push(dateUpiter);
+
+  const dateUran = {
+    planet: "Уран",
+    znZod: "Стрілець",
+    degr: 19,
+    hours: 24,
+  };
+
+  arrayPlanet.push(dateUran);
+
+  const dateNeptun = {
+    planet: "Нептун",
+    znZod: "Козеріг",
+    degr: 4,
+    hours: 9,
+  };
+
+  arrayPlanet.push(dateNeptun);
+
+  const datePluton = {
+    planet: "Плутон",
+    znZod: "Скорпіон",
+    degr: 4,
+    hours: 33,
+  };
+
+  arrayPlanet.push(datePluton);
 
   let arrayTotal = [];
 
@@ -60,9 +124,12 @@ function myFuncClick() {
         continue;
       }
 
+      const newDegrOne = getDegr(elemOne.znZod) + elemOne.degr;
+      const newDegrTwo = getDegr(elemTwo.znZodObj) + elemTwo.degrObj;
+
       const difAsp = getDiffDegr(
-        elemOne.degr,
-        elemTwo.degrObj,
+        newDegrOne,
+        newDegrTwo,
         elemOne.hours,
         elemTwo.hoursObj
       );
@@ -98,38 +165,49 @@ function myFuncClick() {
               elemTwo.yearObj +
               "_" +
               elemTwo.monthObj,
+            aspect:
+              elemOne.planet +
+              " " +
+              tekAspect +
+              " " +
+              elemTwo.planetObj +
+              ", год - " +
+              elemTwo.yearObj +
+              ", месяц - " +
+              elemTwo.monthObj +
+              ", планета №1 - " +
+              elemOne.znZod +
+              ", планета №2 - " +
+              elemTwo.znZodObj +
+              ", градус №1 - " +
+              elemOne.degr +
+              ", часы №1 - " +
+              elemOne.hours +
+              ", градус №2 - " +
+              elemTwo.degrObj +
+              ", часы №2 - " +
+              elemTwo.hoursObj,
           };
           dateAspect.push(newObj);
         }
       }
     }
   }
-  /*  const newElemets = document.querySelectorAll(".directions-list > li");
+
+  const newElemets = document.querySelectorAll(".directions-list > li");
   for (const element of newElemets) {
     element.remove();
   }
 
-  const aspectItems = arrayTotal.map((el) => {
+  const aspectItems = dateAspect.map((el) => {
     const newItem = document.createElement("li");
-    newItem.textContent =
-      "Планета - " +
-      el.planetObj +
-      ", год - " +
-      el.yearObj +
-      ", месяц - " +
-      el.monthObj +
-      ", знак зодиака - " +
-      el.znZodObj +
-      ", градусы - " +
-      el.degrObj +
-      ", часы - " +
-      el.hoursObj;
+    newItem.textContent = el.aspect;
     newItem.classList.add("directions-item");
     return newItem;
   });
 
   const aspectsList = document.querySelector(".directions-list");
-  aspectsList.append(...aspectItems);*/
+  aspectsList.append(...aspectItems);
 }
 
 function changeElArOne(elem) {
@@ -164,7 +242,7 @@ function getNewDateArray(planet, znZod, degr, hours, countOfYear) {
         degrObj: objDate.newDgr,
         hoursObj: objDate.newHrs,
       };
-      changeElArTwo(dateOfDegr);
+
       periodArray.push(dateOfDegr);
     }
   }
