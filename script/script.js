@@ -150,6 +150,60 @@ function myFuncClick() {
 
   arrayPlanet.push(dateHouseSix);
 
+  const dateHouseSeven = {
+    planet: "Дом №7",
+    znZod: "Риби",
+    degr: 16,
+    hours: 17,
+  };
+
+  arrayPlanet.push(dateHouseSeven);
+
+  const dateHouseEight = {
+    planet: "Дом №8",
+    znZod: "Овен",
+    degr: 8,
+    hours: 10,
+  };
+
+  arrayPlanet.push(dateHouseEight);
+
+  const dateHouseNine = {
+    planet: "Дом №9",
+    znZod: "Тілець",
+    degr: 6,
+    hours: 29,
+  };
+
+  arrayPlanet.push(dateHouseNine);
+
+  const dateHouseTen = {
+    planet: "Дом №10",
+    znZod: "Близнюки",
+    degr: 11,
+    hours: 49,
+  };
+
+  arrayPlanet.push(dateHouseTen);
+
+  const dateHouseElewen = {
+    planet: "Дом №11",
+    znZod: "Рак",
+    degr: 19,
+    hours: 18,
+  };
+
+  arrayPlanet.push(dateHouseElewen);
+
+  const dateHouseTwelve = {
+    planet: "Дом №12",
+    znZod: "Лев",
+    degr: 21,
+    hours: 0,
+  };
+
+  arrayPlanet.push(dateHouseTwelve);
+
   let arrayTotal = [];
 
   for (a = 0; a < arrayPlanet.length; a += 1) {
