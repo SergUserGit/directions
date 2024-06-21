@@ -1,19 +1,290 @@
-.start-button {
-  border: none;
-  cursor: pointer;
-  padding: 12px;
-  color: blue;
-  background-color: cyan;
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1120px;
+    padding: 0 10px 0 10px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .container {
+    max-width: 280px;
+    padding: 0 10px 0 10px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .container {
+    max-width: 440px;
+    padding: 0 10px 0 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    max-width: 690px;
+    padding: 0 10px 0 10px;
+  }
+}
+
+
+.main-title {
+  text-align: center;
+  color: #474b73;
+  letter-spacing: 0.2em;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
+}
+
+@media screen and (min-width: 1200px) {
+  .main-title {
+    font-size: 96px;
+    line-height: 10%;
+    margin-bottom: 90px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .main-title {
+    font-size: 26px;
+    line-height: 38%;
+    margin-bottom: 42px;
+  }
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .main-title {
+    font-size: 39px;
+    line-height: 26%;
+    margin-bottom: 48px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .main-title {
+    font-size: 62px;
+    line-height: 16%;
+    margin-bottom: 66px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main-section {
+    padding-top: 55px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .main-section {
+    padding-top: 37px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .main-section {
+    padding-top: 25px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .main-section {
+    padding-top: 32px;
+  }
+}
+
+.calc-button {
+  cursor: pointer;
+  border: 5px solid #507b64;
   border-radius: 10px;
-  transition: color 500ms linear;
+  background: rgba(109, 52, 107, 0.33);
 }
 
-.start-button:hover {
-  color: rgb(43, 43, 94);
-  background-color: rgb(182, 227, 227);
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .calc-button {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
 }
 
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .calc-button {
+    padding-top: 28px;
+    padding-bottom: 18px;
+    padding-left: 37px;
+    padding-right: 37px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .calc-button {
+    padding-top: 40px;
+    padding-bottom: 22px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .calc-button {
+    padding-top: 38px;
+    padding-bottom: 15px;
+    padding-left: 86px;
+    padding-right: 86px;
+  }
+
+}
+
+.label-count-year {
+  color: #55279f;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  line-height: 0%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .label-count-year {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .label-count-year {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .label-count-year {
+    font-size: 48px;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  .label-count-year {
+    font-size: 75px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .group-year {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    align-items: center;
+    margin-bottom: 38px;
+  }
+}
+
+
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .group-year {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+
+  .group-year {
+    margin-bottom: 35px;
+    display: flex;
+    gap: 82px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .group-year {
+    margin-bottom: 17px;
+    display: flex;
+    gap: 77px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.input-count-year {
+  border: 5px solid rgba(82, 60, 146, 0.71);
+  border-radius: 10px;
+  background: rgba(119, 156, 89, 0.29);
+  color: #5d359d;
+  line-height: 0%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .input-count-year {
+    font-size: 20px;
+    width: 170px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .input-count-year {
+    font-size: 30px;
+    width: 241px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .input-count-year {
+    font-size: 48px;
+    width: 241px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .input-count-year {
+    font-size: 75px;
+    width: 249px;
+  }
+}
+
+/*
 .directions-list {
   list-style: none;
   gap: 10px;
@@ -32,4 +303,45 @@
 
 .directions-item:hover {
   background-color: rgb(180, 199, 186);
+}*/
+
+body {
+  background: rgba(97, 18, 124, 0.16);
+}
+
+.main-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calc-span {
+  color: #5244ae;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  line-height: 0%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .calc-span {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .calc-span {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .calc-span {
+    font-size: 48px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .calc-span {
+    font-size: 54px;
+  }
 }
