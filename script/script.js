@@ -1,8 +1,9 @@
-const myButton = document.querySelector(".start-button");
+const myButton = document.querySelector(".calc-button");
 myButton.addEventListener("click", myFuncClick);
 
-function myFuncClick() {
-  let countOfYear = 37;
+function myFuncClick(evnt) {
+  evnt.preventDefault();
+  /* let countOfYear = 37;
 
   let arrayPlanet = [];
 
@@ -316,6 +317,7 @@ function myFuncClick() {
 
   const aspectsList = document.querySelector(".directions-list");
   aspectsList.append(...aspectItems);
+  */
 }
 
 function changeElArOne(elem) {
