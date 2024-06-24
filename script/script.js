@@ -11,6 +11,9 @@ const planetMerkHoursInput = document.querySelector("#aspect-hours-merk");
 const planetSunInput = document.querySelector("#aspect-sun");
 const planetSunDegrInput = document.querySelector("#aspect-degr-sun");
 const planetSunHoursInput = document.querySelector("#aspect-hours-sun");
+const planetMonInput = document.querySelector("#aspect-moon");
+const planetMonDegrInput = document.querySelector("#aspect-degr-moon");
+const planetMonHoursInput = document.querySelector("#aspect-hours-moon");
 
 function myFuncClick(evnt) {
   evnt.preventDefault();
@@ -29,6 +32,13 @@ function myFuncClick(evnt) {
   let planetSunDegrValue = parseInt(planetSunDegrInput.value);
 
   let planetSunHoursValue = parseInt(planetSunHoursInput.value);
+
+  let planetMonValue =
+    planetMonInput.options[planetMonInput.value - 1].textContent;
+
+  let planetMonDegrValue = parseInt(planetMonDegrInput.value);
+
+  let planetMonHoursValue = parseInt(planetMonHoursInput.value);
 
   let arrayPlanet = [];
 
@@ -58,16 +68,16 @@ function myFuncClick(evnt) {
   };
 
   arrayPlanet.push(dateSun);
-  /*
+
   const dateMon = {
     planet: "Місяць",
-    znZod: "Рак",
-    degr: 4,
-    hours: 9,
+    znZod: planetMonValue,
+    degr: planetMonDegrValue,
+    hours: planetMonHoursValue,
   };
 
   arrayPlanet.push(dateMon);
-
+  /*
   const dateVen = {
     planet: "Венера",
     znZod: "Лев",
