@@ -20,6 +20,9 @@ const planetVenerHoursInput = document.querySelector("#aspect-hours-vener");
 const planetSaturnInput = document.querySelector("#aspect-saturn");
 const planetSaturnDegrInput = document.querySelector("#aspect-degr-saturn");
 const planetSaturnHoursInput = document.querySelector("#aspect-hours-saturn");
+const planetUpiterInput = document.querySelector("#aspect-yupiter");
+const planetUpiterDegrInput = document.querySelector("#aspect-degr-yupiter");
+const planetUpiterHoursInput = document.querySelector("#aspect-hours-yupiter");
 
 function myFuncClick(evnt) {
   evnt.preventDefault();
@@ -60,7 +63,12 @@ function myFuncClick(evnt) {
 
   let planetSaturnHoursValue = parseInt(planetSaturnHoursInput.value);
 
- 
+  let planetUpiterValue =
+    planetUpiterInput.options[planetUpiterInput.value - 1].textContent;
+
+  let planetUpiterDegrValue = parseInt(planetUpiterDegrInput.value);
+
+  let planetUpiterHoursValue = parseInt(planetUpiterHoursInput.value);
 
   let arrayPlanet = [];
 
@@ -109,7 +117,6 @@ function myFuncClick(evnt) {
 
   arrayPlanet.push(dateVen);
 
-  
   const dateSaturn = {
     planet: "Сатурн",
     znZod: planetSaturnValue,
@@ -118,16 +125,16 @@ function myFuncClick(evnt) {
   };
 
   arrayPlanet.push(dateSaturn);
-  /*
+
   const dateUpiter = {
     planet: "Юпітер",
-    znZod: "Риби",
-    degr: 22,
-    hours: 47,
+    znZod: planetUpiterValue,
+    degr: planetUpiterDegrValue,
+    hours: planetUpiterHoursValue,
   };
 
   arrayPlanet.push(dateUpiter);
-
+  /*
   const dateUran = {
     planet: "Уран",
     znZod: "Стрілець",
