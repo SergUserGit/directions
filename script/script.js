@@ -1,30 +1,46 @@
 const myButton = document.querySelector(".calc-button");
 myButton.addEventListener("click", myFuncClick);
 
+const countOfYearInput = document.querySelector(".input-count-year");
+const planetMarsInput = document.querySelector("#aspect-mars");
+const planetMarsDegrInput = document.querySelector("#aspect-degr-mars");
+const planetMarsHoursInput = document.querySelector("#aspect-hours-mars");
+const planetMerkInput = document.querySelector("#aspect-merk");
+const planetMerkDegrInput = document.querySelector("#aspect-degr-merk");
+const planetMerkHoursInput = document.querySelector("#aspect-hours-merk");
+
 function myFuncClick(evnt) {
   evnt.preventDefault();
-  /* let countOfYear = 37;
+  let countOfYear = parseInt(countOfYearInput.value);
+  let planetMarsValue =
+    planetMarsInput.options[planetMarsInput.value - 1].textContent;
+  let planetMarsDegrValue = parseInt(planetMarsDegrInput.value);
+  let planetMarsHoursValue = parseInt(planetMarsHoursInput.value);
+  let planetMerkValue =
+    planetMerkInput.options[planetMerkInput.value - 1].textContent;
+  let planetMerkDegrValue = parseInt(planetMerkDegrInput.value);
+  let planetMerkHoursValue = parseInt(planetMerkHoursInput.value);
 
   let arrayPlanet = [];
 
   const dateMars = {
     planet: "Марс",
-    znZod: "Козеріг",
-    degr: 18,
-    hours: 48,
+    znZod: planetMarsValue,
+    degr: planetMarsDegrValue,
+    hours: planetMarsHoursValue,
   };
 
   arrayPlanet.push(dateMars);
 
   const dateMerk = {
     planet: "Меркурій",
-    znZod: "Лев",
-    degr: 5,
-    hours: 56,
+    znZod: planetMerkValue,
+    degr: planetMerkDegrValue,
+    hours: planetMerkHoursValue,
   };
 
   arrayPlanet.push(dateMerk);
-
+  /*
   const dateSun = {
     planet: "Сонце",
     znZod: "Рак",
