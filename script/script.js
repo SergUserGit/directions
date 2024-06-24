@@ -23,6 +23,8 @@ const planetSaturnHoursInput = document.querySelector("#aspect-hours-saturn");
 const planetUpiterInput = document.querySelector("#aspect-yupiter");
 const planetUpiterDegrInput = document.querySelector("#aspect-degr-yupiter");
 const planetUpiterHoursInput = document.querySelector("#aspect-hours-yupiter");
+const planetUranInput = document.querySelector("#aspect-uran");
+const planetUranDegrInput = document.querySelector("#aspect-degr-uran");
 
 function myFuncClick(evnt) {
   evnt.preventDefault();
@@ -69,6 +71,9 @@ function myFuncClick(evnt) {
   let planetUpiterDegrValue = parseInt(planetUpiterDegrInput.value);
 
   let planetUpiterHoursValue = parseInt(planetUpiterHoursInput.value);
+
+  let planetUranValue =
+    planetUranInput.options[planetUranInput.value - 1].textContent;
 
   let arrayPlanet = [];
 
