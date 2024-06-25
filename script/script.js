@@ -530,22 +530,30 @@ function myFuncClick(evnt) {
     }
   }
 
-  /*
-  const newElemets = document.querySelectorAll(".directions-list > li");
+  let arrayRenderPlanet = [];
+
+  for (let i = 0; i < dateAspect.length; i += 1) {
+    const curItem = dateAspect[0];
+    const inArray = arrayRenderPlanet.indexOf(curItem.planetone);
+    if (inArray === -1) {
+      arrayRenderPlanet.push(curItem.planetone);
+    }
+  }
+
+  /* const newElemets = document.querySelectorAll(".directions-list > li");
   for (const element of newElemets) {
     element.remove();
   }
 
   const aspectItems = dateAspect.map((el) => {
-    const newItem = document.createElement("li");
-    newItem.textContent = el.aspect;
-    newItem.classList.add("directions-item");
+    const newItem = document.createElement("h2");
+    newItem.textContent = el.planetone;
+    newItem.classList.add("planet-one-title");
     return newItem;
   });
 
   const aspectsList = document.querySelector(".directions-list");
-  aspectsList.append(...aspectItems);
-  */
+  aspectsList.append(...aspectItems);*/
 }
 
 function changeElArOne(elem) {
