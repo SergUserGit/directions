@@ -530,8 +530,6 @@ function myFuncClick(evnt) {
     }
   }
 
-  console.log(dateAspect);
-
   /*
   const newElemets = document.querySelectorAll(".directions-list > li");
   for (const element of newElemets) {
