@@ -331,120 +331,120 @@ function myFuncClick(evnt) {
   };
 
   arrayPlanet.push(dateNeptun);
-  /*
+
   const datePluton = {
     planet: "Плутон",
-    znZod: "Скорпіон",
-    degr: 4,
-    hours: 33,
+    znZod: planetPlunonValue,
+    degr: planetPlunonDegrValue,
+    hours: planetPlunonHoursValue,
   };
 
   arrayPlanet.push(datePluton);
 
   const dateHouseOne = {
     planet: "Дом №1",
-    znZod: "Діва",
-    degr: 16,
-    hours: 17,
+    znZod: planetHouseOneValue,
+    degr: planetHouseOneDegrValue,
+    hours: planetHouseOneHoursValue,
   };
 
   arrayPlanet.push(dateHouseOne);
 
   const dateHouseTwo = {
     planet: "Дом №2",
-    znZod: "Терези",
-    degr: 8,
-    hours: 10,
+    znZod: planetHouseTwoValue,
+    degr: planetHouseTwoDegrValue,
+    hours: planetHouseTwoHoursValue,
   };
 
   arrayPlanet.push(dateHouseTwo);
 
   const dateHouseThree = {
     planet: "Дом №3",
-    znZod: "Скорпіон",
-    degr: 6,
-    hours: 29,
+    znZod: planetHouseThreeValue,
+    degr: planetHouseThreeDegrValue,
+    hours: planetHouseThreeHoursValue,
   };
 
   arrayPlanet.push(dateHouseThree);
 
   const dateHouseFour = {
     planet: "Дом №4",
-    znZod: "Стрілець",
-    degr: 11,
-    hours: 49,
+    znZod: planetHouseFourValue,
+    degr: planetHouseFourDegrValue,
+    hours: planetHouseFourHoursValue,
   };
 
   arrayPlanet.push(dateHouseFour);
 
   const dateHouseFive = {
     planet: "Дом №5",
-    znZod: "Козеріг",
-    degr: 19,
-    hours: 18,
+    znZod: planetHouseFiveValue,
+    degr: planetHouseFiveDegrValue,
+    hours: planetHouseFiveHoursValue,
   };
 
   arrayPlanet.push(dateHouseFive);
 
   const dateHouseSix = {
     planet: "Дом №6",
-    znZod: "Водолій",
-    degr: 21,
-    hours: 0,
+    znZod: planetHouseSixValue,
+    degr: planetHouseSixDegrValue,
+    hours: planetHouseSixHoursValue,
   };
 
   arrayPlanet.push(dateHouseSix);
 
   const dateHouseSeven = {
     planet: "Дом №7",
-    znZod: "Риби",
-    degr: 16,
-    hours: 17,
+    znZod: planetHouseSevenValue,
+    degr: planetHouseSevenDegrValue,
+    hours: planetHouseSevenHoursValue,
   };
 
   arrayPlanet.push(dateHouseSeven);
 
   const dateHouseEight = {
     planet: "Дом №8",
-    znZod: "Овен",
-    degr: 8,
-    hours: 10,
+    znZod: planetHouseEightValue,
+    degr: planetHouseEightDegrValue,
+    hours: planetHouseEightHoursValue,
   };
 
   arrayPlanet.push(dateHouseEight);
 
   const dateHouseNine = {
     planet: "Дом №9",
-    znZod: "Тілець",
-    degr: 6,
-    hours: 29,
+    znZod: planetHouseNineValue,
+    degr: planetHouseNineDegrValue,
+    hours: planetHouseNineHoursValue,
   };
 
   arrayPlanet.push(dateHouseNine);
 
   const dateHouseTen = {
     planet: "Дом №10",
-    znZod: "Близнюки",
-    degr: 11,
-    hours: 49,
+    znZod: planetHouseTenValue,
+    degr: planetHouseTenDegrValue,
+    hours: planetHouseTenHoursValue,
   };
 
   arrayPlanet.push(dateHouseTen);
 
   const dateHouseElewen = {
     planet: "Дом №11",
-    znZod: "Рак",
-    degr: 19,
-    hours: 18,
+    znZod: planetHouseElevenValue,
+    degr: planetHouseElevenDegrValue,
+    hours: planetHouseElevenHoursValue,
   };
 
   arrayPlanet.push(dateHouseElewen);
 
   const dateHouseTwelve = {
     planet: "Дом №12",
-    znZod: "Лев",
-    degr: 21,
-    hours: 0,
+    znZod: planetHouseTwelveValue,
+    degr: planetHouseTwelveDegrValue,
+    hours: planetHouseTwelveHoursValue,
   };
 
   arrayPlanet.push(dateHouseTwelve);
@@ -547,6 +547,9 @@ function myFuncClick(evnt) {
     }
   }
 
+  console.log(dateAspect);
+
+  /*
   const newElemets = document.querySelectorAll(".directions-list > li");
   for (const element of newElemets) {
     element.remove();
