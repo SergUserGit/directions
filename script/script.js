@@ -177,10 +177,77 @@ function myFuncClick(evnt) {
 
   let planetNeptunValue =
     planetNeptnunInput.options[planetNeptnunInput.value - 1].textContent;
-
   let planetNeptunDegrValue = parseInt(planetNeptunDegrInput.value);
-
   let planetNeptunHoursValue = parseInt(planetNeptunHoursInput.value);
+
+  let planetPlunonValue =
+    planetPlutonInput.options[planetPlutonInput.value - 1].textContent;
+  let planetPlunonDegrValue = parseInt(planetPlutonDegrInput.value);
+  let planetPlunonHoursValue = parseInt(planetPlutonHoursInput.value);
+
+  let planetHouseOneValue =
+    planetHouseOneInput.options[planetHouseOneInput.value - 1].textContent;
+  let planetHouseOneDegrValue = parseInt(planetHouseOneDegrInput.value);
+  let planetHouseOneHoursValue = parseInt(planetHouseOneHoursInput.value);
+
+  let planetHouseTwoValue =
+    planetHouseTwoInput.options[planetHouseTwoInput.value - 1].textContent;
+  let planetHouseTwoDegrValue = parseInt(planetHouseTwoDegrInput.value);
+  let planetHouseTwoHoursValue = parseInt(planetHouseTwoHoursInput.value);
+
+  let planetHouseThreeValue =
+    planetHouseThreeInput.options[planetHouseThreeInput.value - 1].textContent;
+  let planetHouseThreeDegrValue = parseInt(planetHouseThreeDegrInput.value);
+  let planetHouseThreeHoursValue = parseInt(planetHouseThreeHoursInput.value);
+
+  let planetHouseFourValue =
+    planetHouseFourInput.options[planetHouseFourInput.value - 1].textContent;
+  let planetHouseFourDegrValue = parseInt(planetHouseFourDegrInput.value);
+  let planetHouseFourHoursValue = parseInt(planetHouseFourHoursInput.value);
+
+  let planetHouseFiveValue =
+    planetHouseFiveInput.options[planetHouseFiveInput.value - 1].textContent;
+  let planetHouseFiveDegrValue = parseInt(planetHouseFiveDegrInput.value);
+  let planetHouseFiveHoursValue = parseInt(planetHouseFiveHoursInput.value);
+
+  let planetHouseSixValue =
+    planetHouseSixInput.options[planetHouseSixInput.value - 1].textContent;
+  let planetHouseSixDegrValue = parseInt(planetHouseSixDegrInput.value);
+  let planetHouseSixHoursValue = parseInt(planetHouseSixHoursInput.value);
+
+  let planetHouseSevenValue =
+    planetHouseSevenInput.options[planetHouseSevenInput.value - 1].textContent;
+  let planetHouseSevenDegrValue = parseInt(planetHouseSevenDegrInput.value);
+  let planetHouseSevenHoursValue = parseInt(planetHouseSevenHoursInput.value);
+
+  let planetHouseEightValue =
+    planetHouseEightInput.options[planetHouseEightInput.value - 1].textContent;
+  let planetHouseEightDegrValue = parseInt(planetHouseEightDegrInput.value);
+  let planetHouseEightHoursValue = parseInt(planetHouseEightHoursInput.value);
+
+  let planetHouseNineValue =
+    planetHouseNineInput.options[planetHouseNineInput.value - 1].textContent;
+  let planetHouseNineDegrValue = parseInt(planetHouseNineDegrInput.value);
+  let planetHouseNineHoursValue = parseInt(planetHouseNineHoursInput.value);
+
+  let planetHouseTenValue =
+    planetHouseTenInput.options[planetHouseTenInput.value - 1].textContent;
+  let planetHouseTenDegrValue = parseInt(planetHouseTenDegrInput.value);
+  let planetHouseTenHoursValue = parseInt(planetHouseTenHoursInput.value);
+
+  let planetHouseElevenValue =
+    planetHouseElewenInput.options[planetHouseElewenInput.value - 1]
+      .textContent;
+  let planetHouseElevenDegrValue = parseInt(planetHouseElewenDegrInput.value);
+  let planetHouseElevenHoursValue = parseInt(planetHouseElewenHoursInput.value);
+
+  let planetHouseTwelveValue =
+    planetHouseTweleveInput.options[planetHouseTweleveInput.value - 1]
+      .textContent;
+  let planetHouseTwelveDegrValue = parseInt(planetHouseTweleveDegrInput.value);
+  let planetHouseTwelveHoursValue = parseInt(
+    planetHouseTweleveHoursInput.value
+  );
 
   let arrayPlanet = [];
 
