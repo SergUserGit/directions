@@ -518,28 +518,11 @@ function myFuncClick(evnt) {
               elemTwo.yearObj +
               "_" +
               elemTwo.monthObj,
-            aspect:
-              elemOne.planet +
-              " " +
-              tekAspect +
-              " " +
-              elemTwo.planetObj +
-              ", год - " +
-              elemTwo.yearObj +
-              ", месяц - " +
-              elemTwo.monthObj +
-              ", планета №1 - " +
-              elemOne.znZod +
-              ", планета №2 - " +
-              elemTwo.znZodObj +
-              ", градус №1 - " +
-              elemOne.degr +
-              ", часы №1 - " +
-              elemOne.hours +
-              ", градус №2 - " +
-              elemTwo.degrObj +
-              ", часы №2 - " +
-              elemTwo.hoursObj,
+            aspect: tekAspect,
+            planetone: elemOne.planet,
+            planettwo: elemTwo.planetObj,
+            years: elemTwo.yearObj,
+            months: elemTwo.monthObj,
           };
           dateAspect.push(newObj);
         }
