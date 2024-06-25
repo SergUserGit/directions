@@ -25,6 +25,7 @@ const planetUpiterDegrInput = document.querySelector("#aspect-degr-yupiter");
 const planetUpiterHoursInput = document.querySelector("#aspect-hours-yupiter");
 const planetUranInput = document.querySelector("#aspect-uran");
 const planetUranDegrInput = document.querySelector("#aspect-degr-uran");
+const planetUranHoursInput = document.querySelector("#aspect-hours-uran");
 
 function myFuncClick(evnt) {
   evnt.preventDefault();
@@ -74,6 +75,10 @@ function myFuncClick(evnt) {
 
   let planetUranValue =
     planetUranInput.options[planetUranInput.value - 1].textContent;
+
+  let planetUranDegrValue = parseInt(planetUranDegrInput.value);
+
+  let planetUranHoursValue = parseInt(planetUranHoursInput.value);
 
   let arrayPlanet = [];
 
@@ -139,16 +144,16 @@ function myFuncClick(evnt) {
   };
 
   arrayPlanet.push(dateUpiter);
-  /*
+
   const dateUran = {
     planet: "Уран",
-    znZod: "Стрілець",
-    degr: 19,
-    hours: 24,
+    znZod: planetUranValue,
+    degr: planetUranDegrValue,
+    hours: planetUranHoursValue,
   };
 
   arrayPlanet.push(dateUran);
-
+  /*
   const dateNeptun = {
     planet: "Нептун",
     znZod: "Козеріг",
