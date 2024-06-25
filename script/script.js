@@ -30,6 +30,98 @@ const planetNeptnunInput = document.querySelector("#aspect-neptun");
 const planetNeptunDegrInput = document.querySelector("#aspect-degr-neptun");
 const planetNeptunHoursInput = document.querySelector("#aspect-hours-neptun");
 
+const planetPlutonInput = document.querySelector("#aspect-pluton");
+const planetPlutonDegrInput = document.querySelector("#aspect-degr-pluton");
+const planetPlutonHoursInput = document.querySelector("#aspect-hours-pluton");
+
+const planetHouseOneInput = document.querySelector("#aspect-houseone");
+const planetHouseOneDegrInput = document.querySelector("#aspect-degr-houseone");
+const planetHouseOneHoursInput = document.querySelector(
+  "#aspect-hours-houseone"
+);
+
+const planetHouseTwoInput = document.querySelector("#aspect-housetwo");
+const planetHouseTwoDegrInput = document.querySelector("#aspect-degr-housetwo");
+const planetHouseTwoHoursInput = document.querySelector(
+  "#aspect-hours-housetwo"
+);
+
+const planetHouseThreeInput = document.querySelector("#aspect-housethree");
+const planetHouseThreeDegrInput = document.querySelector(
+  "#aspect-degr-housethree"
+);
+const planetHouseThreeHoursInput = document.querySelector(
+  "#aspect-hours-housethree"
+);
+
+const planetHouseFourInput = document.querySelector("#aspect-housefour");
+const planetHouseFourDegrInput = document.querySelector(
+  "#aspect-degr-housefour"
+);
+const planetHouseFourHoursInput = document.querySelector(
+  "#aspect-hours-housefour"
+);
+
+const planetHouseFiveInput = document.querySelector("#aspect-housefive");
+const planetHouseFiveDegrInput = document.querySelector(
+  "#aspect-degr-housefive"
+);
+const planetHouseFiveHoursInput = document.querySelector(
+  "#aspect-hours-housefive"
+);
+
+const planetHouseSixInput = document.querySelector("#aspect-housesix");
+const planetHouseSixDegrInput = document.querySelector("#aspect-degr-housesix");
+const planetHouseSixHoursInput = document.querySelector(
+  "#aspect-hours-housesix"
+);
+
+const planetHouseSevenInput = document.querySelector("#aspect-houseseven");
+const planetHouseSevenDegrInput = document.querySelector(
+  "#aspect-degr-houseseven"
+);
+const planetHouseSevenHoursInput = document.querySelector(
+  "#aspect-hours-houseseven"
+);
+
+const planetHouseEightInput = document.querySelector("#aspect-houseeight");
+const planetHouseEightDegrInput = document.querySelector(
+  "#aspect-degr-houseeight"
+);
+const planetHouseEightHoursInput = document.querySelector(
+  "#aspect-hours-houseeight"
+);
+
+const planetHouseNineInput = document.querySelector("#aspect-housenine");
+const planetHouseNineDegrInput = document.querySelector(
+  "#aspect-degr-housenine"
+);
+const planetHouseNineHoursInput = document.querySelector(
+  "#aspect-hours-housenine"
+);
+
+const planetHouseTenInput = document.querySelector("#aspect-houseten");
+const planetHouseTenDegrInput = document.querySelector("#aspect-degr-houseten");
+const planetHouseTenHoursInput = document.querySelector(
+  "#aspect-hours-houseten"
+);
+
+const planetHouseElewenInput = document.querySelector("#aspect-houseelewen");
+const planetHouseElewenDegrInput = document.querySelector(
+  "#aspect-degr-houseelewen"
+);
+const planetHouseElewenHoursInput = document.querySelector(
+  "#aspect-hours-houseelewen"
+);
+
+const planetHouseTweleveInput = document.querySelector("#aspect-housetwelve");
+const planetHouseTweleveDegrInput = document.querySelector(
+  "#aspect-degr-housetwelve"
+);
+const planetHouseTweleveHoursInput = document.querySelector(
+  "#aspect-hours-housetwelve"
+);
+
 function myFuncClick(evnt) {
   evnt.preventDefault();
   let countOfYear = parseInt(countOfYearInput.value);
