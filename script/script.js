@@ -533,27 +533,66 @@ function myFuncClick(evnt) {
   let arrayRenderPlanet = [];
 
   for (let i = 0; i < dateAspect.length; i += 1) {
-    const curItem = dateAspect[0];
+    const curItem = dateAspect[i];
     const inArray = arrayRenderPlanet.indexOf(curItem.planetone);
     if (inArray === -1) {
       arrayRenderPlanet.push(curItem.planetone);
     }
   }
 
-  /* const newElemets = document.querySelectorAll(".directions-list > li");
+  let arrayRenderPlanetAspect = [];
+
+  for (let i = 0; i < dateAspect.length; i += 1) {
+    const curItem = dateAspect[i];
+    if (arrayRenderPlanetAspect.length === 0) {
+      const newObj = {
+        planetOne: curItem.planetone,
+        aspect: curItem.aspect,
+      };
+      arrayRenderPlanetAspect.push(newObj);
+    } else {
+      const elFound = arrayRenderPlanetAspect.find(function (el) {
+        return (
+          el.planetOne === curItem.planetone && el.aspect === curItem.aspect
+        );
+      });
+      if (elFound === undefined) {
+        const newObj = {
+          planetOne: curItem.planetone,
+          aspect: curItem.aspect,
+        };
+        arrayRenderPlanetAspect.push(newObj);
+      }
+    }
+  }
+
+  const newElemets = document.querySelectorAll(".directions-list > li");
   for (const element of newElemets) {
     element.remove();
   }
 
-  const aspectItems = dateAspect.map((el) => {
-    const newItem = document.createElement("h2");
-    newItem.textContent = el.planetone;
-    newItem.classList.add("planet-one-title");
-    return newItem;
-  });
+  const listDirection = document.querySelector(".directions-list");
 
-  const aspectsList = document.querySelector(".directions-list");
-  aspectsList.append(...aspectItems);*/
+  for (let i = 0; i < arrayRenderPlanet.length; i += 1) {
+    const curElement = arrayRenderPlanet[i];
+    let elLi = document.createElement("li");
+    let elTitle = document.createElement("h2");
+    listDirection.append(elLi);
+    elLi.append(elTitle);
+    elTitle.textContent = curElement;
+    const planetFind = arrayRenderPlanetAspect.find(function (el) {
+      return el.planetOne === curElement;
+    });
+    if (planetFind !== undefined) {
+      let aspUl = document.createElement("ul");
+      elLi.append(aspUl);
+      let itemAspect = document.createElement("li");
+      aspUl.append(itemAspect);
+      let aspTitle = document.createElement("h3");
+      itemAspect.append(aspTitle);
+      aspTitle.textContent = planetFind.aspect;
+    }
+  }
 }
 
 function changeElArOne(elem) {
