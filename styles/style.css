@@ -64,6 +64,49 @@ li {
   }
 }
 
+.planet-one-title {
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 0%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: rgba(44, 23, 174, 0.64);
+  text-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (min-width: 1200px) {
+  .planet-one-title {
+    font-size: 67px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .planet-one-title {
+    font-size: 67px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .planet-one-title {
+    font-size: 42px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .planet-one-title {
+    font-size: 28px;
+  }
+}
+
+.aspect-title {
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 62px;
+  line-height: 0%;
+  color: #17a2ae;
+}
 
 .main-title {
   text-align: center;

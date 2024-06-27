@@ -596,7 +596,9 @@ function myFuncClick(evnt) {
   for (let i = 0; i < arrayRenderPlanet.length; i += 1) {
     const curElement = arrayRenderPlanet[i];
     let elLi = document.createElement("li");
+    elLi.classList.add("directions-item");
     let elTitle = document.createElement("h2");
+    elTitle.classList.add("planet-one-title");
     listDirection.append(elLi);
     elLi.append(elTitle);
     elTitle.textContent = curElement;
@@ -607,12 +609,15 @@ function myFuncClick(evnt) {
 
     if (arrayPlanetAsp.length > 0) {
       let aspUl = document.createElement("ul");
+      aspUl.classList.add("aspects-list");
       elLi.append(aspUl);
       for (let b = 0; b < arrayPlanetAsp.length; b += 1) {
         const curAspect = arrayPlanetAsp[b].aspect;
         let itemAspect = document.createElement("li");
+        itemAspect.classList.add("aspects-item");
         aspUl.append(itemAspect);
         let aspTitle = document.createElement("h3");
+        aspTitle.classList.add("aspect-title");
         itemAspect.append(aspTitle);
         aspTitle.textContent = curAspect;
         const arrayPlanetTwo = arrayRenderPlanetTwo.filter(
@@ -622,14 +627,41 @@ function myFuncClick(evnt) {
 
         if (arrayPlanetTwo.length > 0) {
           let aspectUlPlanetTwo = document.createElement("ul");
+          aspectUlPlanetTwo.classList.add("planet-two-list");
           itemAspect.append(aspectUlPlanetTwo);
           for (let c = 0; c < arrayPlanetTwo.length; c += 1) {
             const curPlanetTwo = arrayPlanetTwo[c].planetTwo;
             let itemPlanetTwo = document.createElement("li");
+            itemPlanetTwo.classList.add("planet-two-item");
             aspectUlPlanetTwo.append(itemPlanetTwo);
             let planetTwoTitle = document.createElement("h4");
+            planetTwoTitle.classList.add("planet-two-title");
             itemPlanetTwo.append(planetTwoTitle);
             planetTwoTitle.textContent = curPlanetTwo;
+            const arrayYearsMonth = dateAspect.filter(
+              (planetObj) =>
+                planetObj.planetone === curElement &&
+                planetObj.aspect === curAspect &&
+                planetObj.planettwo === curPlanetTwo
+            );
+            if (arrayYearsMonth.length > 0) {
+              let ulPlanetTwo = document.createElement("ul");
+              ulPlanetTwo.classList.add("period-list");
+              itemPlanetTwo.append(ulPlanetTwo);
+              for (let d = 0; d < arrayYearsMonth.length; d += 1) {
+                const curElemYear = arrayYearsMonth[d];
+                const curYear = curElemYear.years;
+                const curMoth = curElemYear.months;
+                let itemPlanetTwo = document.createElement("li");
+                itemPlanetTwo.classList.add("period-item");
+                ulPlanetTwo.append(itemPlanetTwo);
+                let yearsTitle = document.createElement("p");
+                yearsTitle.classList.add("aspects-period");
+                itemPlanetTwo.append(yearsTitle);
+                yearsTitle.textContent =
+                  curYear + " років " + curMoth + " місяців";
+              }
+            }
           }
         }
       }
