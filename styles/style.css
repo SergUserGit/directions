@@ -96,6 +96,8 @@ li {
 @media screen and (min-width: 320px) and (max-width: 479px) {
   .planet-one-title {
     font-size: 28px;
+    margin-bottom: 35px;
+    text-align: center;
   }
 }
 
@@ -103,9 +105,65 @@ li {
   font-family: "Roboto", sans-serif;
   font-style: italic;
   font-weight: 700;
-  font-size: 62px;
   line-height: 0%;
   color: #17a2ae;
+}
+
+@media screen and (min-width: 1200px) {
+  .aspect-title {
+    font-size: 62px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .aspect-title {
+    font-size: 62px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .aspect-title {
+    font-size: 39px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .aspect-title {
+    font-size: 26px;
+  }
+}
+
+.planet-two-title {
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 0%;
+  color: rgba(174, 23, 68, 0.64);
+}
+
+@media screen and (min-width: 1200px) {
+  .planet-two-title {
+    font-size: 62px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .planet-two-title {
+    font-size: 62px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .planet-two-title {
+    font-size: 39px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .planet-two-title {
+    font-size: 26px;
+  }
+
 }
 
 .main-title {
@@ -114,6 +172,43 @@ li {
   letter-spacing: 0.2em;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
+}
+
+.aspects-period {
+  color: #000;
+  font-style: italic;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
+@media screen and (min-width: 1200px) {
+  .aspects-period {
+    font-size: 40px;
+    line-height: 125%;
+    width: 272px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .aspects-period {
+    font-size: 40px;
+    line-height: 125%;
+    width: 280px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .aspects-period {
+    font-size: 27px;
+    line-height: 185%;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .aspects-period {
+    font-size: 18px;
+    line-height: 278%;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -178,6 +273,7 @@ li {
   border: 5px solid #507b64;
   border-radius: 10px;
   background: rgba(109, 52, 107, 0.33);
+  margin-bottom: 40px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -329,6 +425,14 @@ li {
   .input-count-year {
     font-size: 75px;
     width: 249px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .directions-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
