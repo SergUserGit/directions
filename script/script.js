@@ -531,6 +531,8 @@ function myFuncClick(evnt) {
   }
 
   let arrayRenderPlanet = [];
+  let arrayRenderPlanetAspect = [];
+  let arrayRenderPlanetTwo = [];
 
   for (let i = 0; i < dateAspect.length; i += 1) {
     const curItem = dateAspect[i];
@@ -538,12 +540,6 @@ function myFuncClick(evnt) {
     if (inArray === -1) {
       arrayRenderPlanet.push(curItem.planetone);
     }
-  }
-
-  let arrayRenderPlanetAspect = [];
-
-  for (let i = 0; i < dateAspect.length; i += 1) {
-    const curItem = dateAspect[i];
     if (arrayRenderPlanetAspect.length === 0) {
       const newObj = {
         planetOne: curItem.planetone,
@@ -564,6 +560,30 @@ function myFuncClick(evnt) {
         arrayRenderPlanetAspect.push(newObj);
       }
     }
+    if (arrayRenderPlanetTwo.length === 0) {
+      newObj = {
+        planetOne: curItem.planetone,
+        aspect: curItem.aspect,
+        planetTwo: curItem.planettwo,
+      };
+      arrayRenderPlanetTwo.push(newObj);
+    } else {
+      const elFound = arrayRenderPlanetTwo.find(function (el) {
+        return (
+          el.planetOne === curItem.planetone &&
+          el.aspect === curItem.aspect &&
+          el.planetTwo === curItem.planettwo
+        );
+      });
+      if (elFound === undefined) {
+        newObj = {
+          planetOne: curItem.planetone,
+          aspect: curItem.aspect,
+          planetTwo: curItem.planettwo,
+        };
+        arrayRenderPlanetTwo.push(newObj);
+      }
+    }
   }
 
   const newElemets = document.querySelectorAll(".directions-list > li");
@@ -580,17 +600,39 @@ function myFuncClick(evnt) {
     listDirection.append(elLi);
     elLi.append(elTitle);
     elTitle.textContent = curElement;
-    const planetFind = arrayRenderPlanetAspect.find(function (el) {
-      return el.planetOne === curElement;
-    });
-    if (planetFind !== undefined) {
+
+    const arrayPlanetAsp = arrayRenderPlanetAspect.filter(
+      (planetObj) => planetObj.planetOne === curElement
+    );
+
+    if (arrayPlanetAsp.length > 0) {
       let aspUl = document.createElement("ul");
       elLi.append(aspUl);
-      let itemAspect = document.createElement("li");
-      aspUl.append(itemAspect);
-      let aspTitle = document.createElement("h3");
-      itemAspect.append(aspTitle);
-      aspTitle.textContent = planetFind.aspect;
+      for (let b = 0; b < arrayPlanetAsp.length; b += 1) {
+        const curAspect = arrayPlanetAsp[b].aspect;
+        let itemAspect = document.createElement("li");
+        aspUl.append(itemAspect);
+        let aspTitle = document.createElement("h3");
+        itemAspect.append(aspTitle);
+        aspTitle.textContent = curAspect;
+        const arrayPlanetTwo = arrayRenderPlanetTwo.filter(
+          (planetObj) =>
+            planetObj.planetOne === curElement && planetObj.aspect === curAspect
+        );
+
+        if (arrayPlanetTwo.length > 0) {
+          let aspectUlPlanetTwo = document.createElement("ul");
+          itemAspect.append(aspectUlPlanetTwo);
+          for (let c = 0; c < arrayPlanetTwo.length; c += 1) {
+            const curPlanetTwo = arrayPlanetTwo[c].planetTwo;
+            let itemPlanetTwo = document.createElement("li");
+            aspectUlPlanetTwo.append(itemPlanetTwo);
+            let planetTwoTitle = document.createElement("h4");
+            itemPlanetTwo.append(planetTwoTitle);
+            planetTwoTitle.textContent = curPlanetTwo;
+          }
+        }
+      }
     }
   }
 }
