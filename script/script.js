@@ -851,5 +851,30 @@ function myFuncClickPeriod(el) {
   if (symYears !== 0) {
     const textYears = currentText.substr(0, symYears - 1).trim();
     countYears = parseInt(textYears);
+    const nextStr = currentText.substr(symYears).trim();
+    const newNextStr = nextStr.replace("років", "").trim();
+    const totalStr = newNextStr.replace("місяців", "").trim();
+    countMonths = parseInt(totalStr);
   }
+
+  console.log(countYears);
+  console.log(countMonths);
+  console.log("***************");
+
+  /*
+  const myDate = new Date(2024, 0, 12);
+   myDate.setFullYear(
+    myDate.getFullYear() + 1,
+    myDate.getMonth() + 11,
+    myDate.getDay()
+  );
+  console.log(myDate);
+  console.log(
+    String(myDate.getDay()) +
+      "." +
+      String(myDate.getMonth() + 1) +
+      "." +
+      String(myDate.getFullYear())
+  );
+  */
 }
