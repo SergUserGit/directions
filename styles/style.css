@@ -84,6 +84,8 @@ li {
 @media screen and (min-width: 768px) and (max-width: 1199px) {
   .planet-one-title {
     font-size: 67px;
+    text-align: center;
+    margin-bottom: 100px;
   }
 }
 
@@ -164,6 +166,33 @@ li {
 @media screen and (min-width: 768px) and (max-width: 1199px) {
   .planet-two-title {
     font-size: 62px;
+    margin-bottom: 53px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .period-item {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .period-list {
+    margin-bottom: 73px;
+    display: grid;
+    grid-template-columns: 272px 1fr;
+    row-gap: 50px;
+
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .aspects-item {
+    display: flex;
+    gap: 100px;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
