@@ -342,7 +342,7 @@ function myFuncClick(evnt) {
   arrayPlanet.push(datePluton);
 
   const dateHouseOne = {
-    planet: "Дом №1",
+    planet: "Буд. №1",
     znZod: planetHouseOneValue,
     degr: planetHouseOneDegrValue,
     hours: planetHouseOneHoursValue,
@@ -351,7 +351,7 @@ function myFuncClick(evnt) {
   arrayPlanet.push(dateHouseOne);
 
   const dateHouseTwo = {
-    planet: "Дом №2",
+    planet: "Буд. №2",
     znZod: planetHouseTwoValue,
     degr: planetHouseTwoDegrValue,
     hours: planetHouseTwoHoursValue,
@@ -360,7 +360,7 @@ function myFuncClick(evnt) {
   arrayPlanet.push(dateHouseTwo);
 
   const dateHouseThree = {
-    planet: "Дом №3",
+    planet: "Буд. №3",
     znZod: planetHouseThreeValue,
     degr: planetHouseThreeDegrValue,
     hours: planetHouseThreeHoursValue,
@@ -369,7 +369,7 @@ function myFuncClick(evnt) {
   arrayPlanet.push(dateHouseThree);
 
   const dateHouseFour = {
-    planet: "Дом №4",
+    planet: "Буд. №4",
     znZod: planetHouseFourValue,
     degr: planetHouseFourDegrValue,
     hours: planetHouseFourHoursValue,
@@ -378,7 +378,7 @@ function myFuncClick(evnt) {
   arrayPlanet.push(dateHouseFour);
 
   const dateHouseFive = {
-    planet: "Дом №5",
+    planet: "Буд. №5",
     znZod: planetHouseFiveValue,
     degr: planetHouseFiveDegrValue,
     hours: planetHouseFiveHoursValue,
@@ -387,7 +387,7 @@ function myFuncClick(evnt) {
   arrayPlanet.push(dateHouseFive);
 
   const dateHouseSix = {
-    planet: "Дом №6",
+    planet: "Буд. №6",
     znZod: planetHouseSixValue,
     degr: planetHouseSixDegrValue,
     hours: planetHouseSixHoursValue,
@@ -396,7 +396,7 @@ function myFuncClick(evnt) {
   arrayPlanet.push(dateHouseSix);
 
   const dateHouseSeven = {
-    planet: "Дом №7",
+    planet: "Буд. №7",
     znZod: planetHouseSevenValue,
     degr: planetHouseSevenDegrValue,
     hours: planetHouseSevenHoursValue,
@@ -405,7 +405,7 @@ function myFuncClick(evnt) {
   arrayPlanet.push(dateHouseSeven);
 
   const dateHouseEight = {
-    planet: "Дом №8",
+    planet: "Буд. №8",
     znZod: planetHouseEightValue,
     degr: planetHouseEightDegrValue,
     hours: planetHouseEightHoursValue,
@@ -414,7 +414,7 @@ function myFuncClick(evnt) {
   arrayPlanet.push(dateHouseEight);
 
   const dateHouseNine = {
-    planet: "Дом №9",
+    planet: "Буд. №9",
     znZod: planetHouseNineValue,
     degr: planetHouseNineDegrValue,
     hours: planetHouseNineHoursValue,
@@ -423,7 +423,7 @@ function myFuncClick(evnt) {
   arrayPlanet.push(dateHouseNine);
 
   const dateHouseTen = {
-    planet: "Дом №10",
+    planet: "Буд. №10",
     znZod: planetHouseTenValue,
     degr: planetHouseTenDegrValue,
     hours: planetHouseTenHoursValue,
@@ -432,7 +432,7 @@ function myFuncClick(evnt) {
   arrayPlanet.push(dateHouseTen);
 
   const dateHouseElewen = {
-    planet: "Дом №11",
+    planet: "Буд. №11",
     znZod: planetHouseElevenValue,
     degr: planetHouseElevenDegrValue,
     hours: planetHouseElevenHoursValue,
@@ -441,7 +441,7 @@ function myFuncClick(evnt) {
   arrayPlanet.push(dateHouseElewen);
 
   const dateHouseTwelve = {
-    planet: "Дом №12",
+    planet: "Буд. №12",
     znZod: planetHouseTwelveValue,
     degr: planetHouseTwelveDegrValue,
     hours: planetHouseTwelveHoursValue,
