@@ -657,6 +657,7 @@ function myFuncClick(evnt) {
                 ulPlanetTwo.append(itemPlanetTwo);
                 let yearsTitle = document.createElement("p");
                 yearsTitle.classList.add("aspects-period");
+                yearsTitle.addEventListener("click", myFuncClickPeriod);
                 itemPlanetTwo.append(yearsTitle);
                 yearsTitle.textContent =
                   curYear + " років " + curMoth + " місяців";
@@ -838,4 +839,14 @@ function getAspect(diffDegr) {
     return "оппозиція";
   }
   return "";
+}
+
+function myFuncClickPeriod(el) {
+  const currentText = el.target.innerText;
+  const symYears = currentText.indexOf("років");
+
+  const countYears = 0;
+
+  if (symYears !== 0) {
+  }
 }
