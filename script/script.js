@@ -845,8 +845,11 @@ function myFuncClickPeriod(el) {
   const currentText = el.target.innerText;
   const symYears = currentText.indexOf("років");
 
-  const countYears = 0;
+  let countYears = 0;
+  let countMonths = 0;
 
   if (symYears !== 0) {
+    const textYears = currentText.substr(0, symYears - 1).trim();
+    countYears = parseInt(textYears);
   }
 }
