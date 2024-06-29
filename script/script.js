@@ -1,6 +1,7 @@
 const myButton = document.querySelector(".calc-button");
 myButton.addEventListener("click", myFuncClick);
 
+const dbInput = document.querySelector("#date-bd");
 const countOfYearInput = document.querySelector(".input-count-year");
 const planetMarsInput = document.querySelector("#aspect-mars");
 const planetMarsDegrInput = document.querySelector("#aspect-degr-mars");
@@ -841,6 +842,28 @@ function getAspect(diffDegr) {
   return "";
 }
 
+function getStandartDate(curDate) {
+  let totalDate = "";
+
+  const symYears = curDate.indexOf("-");
+  if (symYears !== -1) {
+    const totalYears = curDate.substr(0, symYears).trim();
+    const nextStr = curDate.substr(symYears + 1).trim();
+    const symMonth = nextStr.indexOf("-");
+    if (symMonth !== -1) {
+      const totalMonth = nextStr.substr(0, symMonth).trim();
+      const nextStrDay = nextStr.substr(symMonth + 1).trim();
+      const symDay = nextStrDay.indexOf("T");
+      if (symDay !== -1) {
+        const totalDay = nextStrDay.substr(0, symDay).trim();
+        totalDate = totalDay + "." + totalMonth + "." + totalYears;
+      }
+    }
+  }
+
+  return totalDate;
+}
+
 function myFuncClickPeriod(el) {
   const currentText = el.target.innerText;
   const symYears = currentText.indexOf("років");
@@ -848,7 +871,7 @@ function myFuncClickPeriod(el) {
   let countYears = 0;
   let countMonths = 0;
 
-  if (symYears !== 0) {
+  if (symYears !== -1) {
     const textYears = currentText.substr(0, symYears - 1).trim();
     countYears = parseInt(textYears);
     const nextStr = currentText.substr(symYears).trim();
@@ -857,24 +880,13 @@ function myFuncClickPeriod(el) {
     countMonths = parseInt(totalStr);
   }
 
-  console.log(countYears);
-  console.log(countMonths);
-  console.log("***************");
-
-  /*
-  const myDate = new Date(2024, 0, 12);
-   myDate.setFullYear(
-    myDate.getFullYear() + 1,
-    myDate.getMonth() + 11,
-    myDate.getDay()
+  const dateValue = dbInput.value;
+  const newDate = new Date(dateValue);
+  newDate.setFullYear(
+    newDate.getFullYear() + (countYears - 1),
+    newDate.getMonth() + countMonths
   );
-  console.log(myDate);
-  console.log(
-    String(myDate.getDay()) +
-      "." +
-      String(myDate.getMonth() + 1) +
-      "." +
-      String(myDate.getFullYear())
-  );
-  */
+  const strDate = newDate.toISOString();
+  const standartDate = getStandartDate(strDate);
+  alert(standartDate);
 }
