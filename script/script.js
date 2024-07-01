@@ -529,6 +529,10 @@ function myFuncClick(evnt) {
             months: elemTwo.monthObj,
           };
           dateAspect.push(newObj);
+          const isEmptyBdDate = isEmptyDate(dbInput.value);
+          const isEmptyEventDate = isEmptyDate(dbEventInput.value);
+          if (!isEmptyBdDate && !isEmptyEventDate) {
+          }
         }
       }
     }
