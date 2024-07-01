@@ -2,6 +2,8 @@ const myButton = document.querySelector(".calc-button");
 myButton.addEventListener("click", myFuncClick);
 
 const dbInput = document.querySelector("#date-bd");
+const dbEventInput = document.querySelector("#date-event");
+
 const countOfYearInput = document.querySelector(".input-count-year");
 const planetMarsInput = document.querySelector("#aspect-mars");
 const planetMarsDegrInput = document.querySelector("#aspect-degr-mars");
@@ -469,6 +471,7 @@ function myFuncClick(evnt) {
   }
 
   let dateAspect = [];
+  let dateEventArray = [];
 
   for (let i = 0; i < arrayPlanet.length; i += 1) {
     for (let b = 0; b < arrayTotal.length; b += 1) {
@@ -869,6 +872,23 @@ function isEmptyDate(dateValue) {
   return dateWithoutSpaces === "";
 }
 
+function getFirstNumberDate(curDate) {
+  let totalDate = "";
+
+  const symYears = curDate.indexOf("-");
+  if (symYears !== -1) {
+    const totalYears = curDate.substr(0, symYears).trim();
+    const nextStr = curDate.substr(symYears + 1).trim();
+    const symMonth = nextStr.indexOf("-");
+    if (symMonth !== -1) {
+      const totalMonth = nextStr.substr(0, symMonth).trim();
+      totalDate = "01." + totalMonth + "." + totalYears;
+    }
+  }
+
+  return totalDate;
+}
+
 function myFuncClickPeriod(el) {
   const dateEmpty = isEmptyDate(dbInput.value);
 
@@ -892,12 +912,22 @@ function myFuncClickPeriod(el) {
   }
 
   const dateValue = dbInput.value;
-  const newDate = new Date(dateValue);
-  newDate.setFullYear(
-    newDate.getFullYear() + (countYears - 1),
-    newDate.getMonth() + countMonths
-  );
-  const strDate = newDate.toISOString();
+  const strDate = getStrDate(dateValue, countYears, countMonths);
   const standartDate = getStandartDate(strDate);
   alert(standartDate);
+}
+
+function getNewDateForEvent(dateValue, year, month) {
+  const strDate = getStrDate(dateValue, year, month);
+  return getFirstNumberDate(strDate);
+}
+
+function getStrDate(dateValue, year, month) {
+  const newDate = new Date(dateValue);
+  newDate.setFullYear(
+    newDate.getFullYear() + (year - 1),
+    newDate.getMonth() + month
+  );
+  const strDate = newDate.toISOString();
+  return strDate;
 }
