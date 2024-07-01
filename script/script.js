@@ -532,18 +532,36 @@ function myFuncClick(evnt) {
           const isEmptyBdDate = isEmptyDate(dbInput.value);
           const isEmptyEventDate = isEmptyDate(dbEventInput.value);
           if (!isEmptyBdDate && !isEmptyEventDate) {
+            const dateEvent = getNewDateForEvent(
+              dbInput.value,
+              newObj.years,
+              newObj.months
+            );
+            const DateAnalyz = getDateAnalyz(dbEventInput.value);
+            if (dateEvent === DateAnalyz) {
+              dateEventArray.push(newObj);
+            }
           }
         }
       }
     }
   }
 
+  const isEmptyBdDate = isEmptyDate(dbInput.value);
+  const isEmptyEventDate = isEmptyDate(dbEventInput.value);
+  let curArray = [];
+  if (!isEmptyBdDate && !isEmptyEventDate) {
+    curArray = dateEventArray;
+  } else {
+    curArray = dateAspect;
+  }
+
   let arrayRenderPlanet = [];
   let arrayRenderPlanetAspect = [];
   let arrayRenderPlanetTwo = [];
 
-  for (let i = 0; i < dateAspect.length; i += 1) {
-    const curItem = dateAspect[i];
+  for (let i = 0; i < curArray.length; i += 1) {
+    const curItem = curArray[i];
     const inArray = arrayRenderPlanet.indexOf(curItem.planetone);
     if (inArray === -1) {
       arrayRenderPlanet.push(curItem.planetone);
@@ -646,7 +664,7 @@ function myFuncClick(evnt) {
             planetTwoTitle.classList.add("planet-two-title");
             itemPlanetTwo.append(planetTwoTitle);
             planetTwoTitle.textContent = curPlanetTwo;
-            const arrayYearsMonth = dateAspect.filter(
+            const arrayYearsMonth = curArray.filter(
               (planetObj) =>
                 planetObj.planetone === curElement &&
                 planetObj.aspect === curAspect &&
@@ -934,4 +952,36 @@ function getStrDate(dateValue, year, month) {
   );
   const strDate = newDate.toISOString();
   return strDate;
+}
+
+function getDateAnalyz(curDate) {
+  const objDate = new Date(curDate);
+
+  const year = String(objDate.getFullYear());
+
+  const months = String(objDate.getMonth() + 1);
+
+  const totalmonths = addZero("month", months);
+
+  const totalYears = addZero("year", year);
+
+  return "01." + totalmonths + "." + totalYears;
+}
+
+function addZero(typeDate, datePart) {
+  const countSim = datePart.length;
+
+  let countZero = 0;
+
+  if (typeDate === "month") {
+    countZero = 2 - countSim;
+  } else {
+    countZero = 4 - countSim;
+  }
+
+  let arrayZero = "";
+  for (let i = 1; i <= countZero; i += 1) {
+    arrayZero = arrayZero + "0";
+  }
+  return arrayZero + datePart;
 }
