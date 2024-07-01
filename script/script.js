@@ -864,7 +864,18 @@ function getStandartDate(curDate) {
   return totalDate;
 }
 
+function isEmptyDate(dateValue) {
+  const dateWithoutSpaces = dateValue.trim();
+  return dateWithoutSpaces === "";
+}
+
 function myFuncClickPeriod(el) {
+  const dateEmpty = isEmptyDate(dbInput.value);
+
+  if (dateEmpty) {
+    return;
+  }
+
   const currentText = el.target.innerText;
   const symYears = currentText.indexOf("років");
 
