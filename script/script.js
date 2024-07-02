@@ -125,6 +125,14 @@ const planetHouseTweleveHoursInput = document.querySelector(
   "#aspect-hours-housetwelve"
 );
 
+const planetLilitInput = document.querySelector("#aspect-lilit");
+const planetLilitDegrInput = document.querySelector("#aspect-degr-lilit");
+const planetLilitHoursInput = document.querySelector("#aspect-hours-lilit");
+
+const planetNodeInput = document.querySelector("#aspect-node");
+const planetNodeDegrInput = document.querySelector("#aspect-degr-node");
+const planetNodeHoursInput = document.querySelector("#aspect-hours-node");
+
 function myFuncClick(evnt) {
   evnt.preventDefault();
   let countOfYear = parseInt(countOfYearInput.value);
@@ -251,6 +259,20 @@ function myFuncClick(evnt) {
   let planetHouseTwelveHoursValue = parseInt(
     planetHouseTweleveHoursInput.value
   );
+
+  let planetLilitValue =
+    planetLilitInput.options[planetLilitInput.value - 1].textContent;
+
+  let planetLilitDegrValue = parseInt(planetLilitDegrInput.value);
+
+  let planetLilitHoursValue = parseInt(planetLilitHoursInput.value);
+
+  let planetNodeValue =
+    planetNodeInput.options[planetNodeInput.value - 1].textContent;
+
+  let planetNodeDegrValue = parseInt(planetNodeDegrInput.value);
+
+  let planetNodeHoursValue = parseInt(planetNodeHoursInput.value);
 
   let arrayPlanet = [];
 
@@ -451,6 +473,24 @@ function myFuncClick(evnt) {
   };
 
   arrayPlanet.push(dateHouseTwelve);
+
+  const dateLilit = {
+    planet: "Ліліт",
+    znZod: planetLilitValue,
+    degr: planetLilitDegrValue,
+    hours: planetLilitHoursValue,
+  };
+
+  arrayPlanet.push(dateLilit);
+
+  const dateNode = {
+    planet: "Вузол",
+    znZod: planetNodeValue,
+    degr: planetNodeDegrValue,
+    hours: planetNodeHoursValue,
+  };
+
+  arrayPlanet.push(dateNode);
 
   let arrayTotal = [];
 
