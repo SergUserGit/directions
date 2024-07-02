@@ -81,6 +81,50 @@ li {
   }
 }
 
+.input-date {
+  border: 5px solid rgba(82, 60, 146, 0.71);
+  border-radius: 10px;
+  background: rgba(119, 156, 89, 0.29);
+  color: #5d359d;
+  font-family: "Roboto",
+    sans-serif;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1200px) {
+  .input-date {
+    line-height: 86.25px;
+    width: 360px;
+    font-size: 48px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .input-date {
+    line-height: 86.25px;
+    width: 360px;
+    font-size: 36px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .input-date {
+    line-height: 40px;
+    width: 240px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .input-date {
+    line-height: 35px;
+    width: 170px;
+    font-size: 20px;
+  }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1199px) {
   .planet-one-title {
     font-size: 67px;
@@ -423,7 +467,7 @@ li {
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
   .label-count-year {
-    font-size: 48px;
+    font-size: 26px;
   }
 
 }
