@@ -734,6 +734,44 @@ function myFuncClick(evnt) {
       }
     }
   }
+
+  //Конфігурації
+  /*  let arrayKvadrat = [];
+  let arrayPlanetKvadrat = [];
+  for (let a = 0; a < curArray.length; a += 1) {
+    const curElem = curArray[a];
+
+    if (curElem.aspect === "квадратура") {
+      const elFind = arrayPlanetKvadrat.indexOf(curElem.planetone);
+      if (elFind === -1) {
+        arrayPlanetKvadrat.push(curElem.planetone);
+      }
+      const newObj = {
+        planetOne: curElem.planetone,
+        planetTwo: curElem.planettwo,
+      };
+      arrayKvadrat.push(newObj);
+    }
+  }
+
+  let arrayTauAnaliz = [];
+
+  for (let a = 0; a < arrayPlanetKvadrat.length; a += 1) {
+    const curPlanet = arrayPlanetKvadrat[a];
+    const arrayPlanetKv = arrayKvadrat.filter(
+      (planetObj) => planetObj.planetOne === curPlanet
+    );
+    if (arrayPlanetKv.length > 1) {
+      newObj = {
+        curPlanet: curPlanet,
+        arrayAnalyz: arrayPlanetKv,
+      };
+      arrayTauAnaliz.push(newObj);
+    }
+  }
+
+  console.log(arrayTauAnaliz);*/
+  //Конфігурації
 }
 
 function changeElArOne(elem) {
