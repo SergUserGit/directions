@@ -736,7 +736,7 @@ function myFuncClick(evnt) {
   }
 
   //Конфігурації
-  /*  let arrayKvadrat = [];
+  let arrayKvadrat = [];
   let arrayPlanetKvadrat = [];
   for (let a = 0; a < curArray.length; a += 1) {
     const curElem = curArray[a];
@@ -770,7 +770,140 @@ function myFuncClick(evnt) {
     }
   }
 
-  console.log(arrayTauAnaliz);*/
+  for (let b = 0; b < arrayTauAnaliz.length; b += 1) {
+    const curElement = arrayTauAnaliz[b];
+    const curPlanet = curElement.curPlanet;
+    const curArrayAnalyz = curElement.arrayAnalyz;
+    for (let c = 0; c < curArrayAnalyz.length; c += 1) {
+      for (let d = 0; d < curArrayAnalyz.length; d += 1) {
+        const curElemOne = curArrayAnalyz[c];
+        const curElemTwo = curArrayAnalyz[d];
+        if (curElemOne.planetTwo !== curElemTwo.planetTwo) {
+          const elFound = curArray.find(function (el) {
+            return (
+              el.planetone === curElemOne.planetTwo &&
+              el.aspect === "оппозиція" &&
+              el.planettwo === curElemTwo.planetTwo
+            );
+          });
+          if (elFound !== undefined) {
+            const elFoundKvOne = curArray.find(function (el) {
+              return (
+                el.planetone === elFound.planetone &&
+                el.aspect === "квадратура" &&
+                el.planettwo === curPlanet
+              );
+            });
+            const elFoundKvTwo = curArray.find(function (el) {
+              return (
+                el.planetone === elFound.planettwo &&
+                el.aspect === "квадратура" &&
+                el.planettwo === curPlanet
+              );
+            });
+
+            const elFoundKvThree = curArray.find(function (el) {
+              return (
+                el.planetone === curPlanet &&
+                el.aspect === "квадратура" &&
+                el.planettwo === elFound.planetone
+              );
+            });
+            const elFoundKvFour = curArray.find(function (el) {
+              return (
+                el.planetone === curPlanet &&
+                el.aspect === "квадратура" &&
+                el.planettwo === elFound.planettwo
+              );
+            });
+            if (elFoundKvOne !== undefined && elFoundKvTwo !== undefined) {
+              console.log(
+                "Тау квадрат - " +
+                  curPlanet +
+                  "." +
+                  elFoundKvOne.planetone +
+                  "." +
+                  elFoundKvTwo.planetone
+              );
+              console.log("*****************");
+            }
+            if (elFoundKvThree !== undefined && elFoundKvFour !== undefined) {
+              console.log(
+                "Тау квадрат - " +
+                  curPlanet +
+                  "." +
+                  elFoundKvThree.planettwo +
+                  "." +
+                  elFoundKvFour.planettwo
+              );
+              console.log("*****************");
+            }
+          } else {
+            const elFound = curArray.find(function (el) {
+              return (
+                el.planetone === curElemTwo.planetTwo &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === curElemOne.planetTwo
+              );
+            });
+            if (elFound !== undefined) {
+              const elFoundKvOne = curArray.find(function (el) {
+                return (
+                  el.planetone === elFound.planetone &&
+                  el.aspect === "квадратура" &&
+                  el.planettwo === curPlanet
+                );
+              });
+              const elFoundKvTwo = curArray.find(function (el) {
+                return (
+                  el.planetone === elFound.planettwo &&
+                  el.aspect === "квадратура" &&
+                  el.planettwo === curPlanet
+                );
+              });
+
+              const elFoundKvThree = curArray.find(function (el) {
+                return (
+                  el.planetone === curPlanet &&
+                  el.aspect === "квадратура" &&
+                  el.planettwo === elFound.planetone
+                );
+              });
+              const elFoundKvFour = curArray.find(function (el) {
+                return (
+                  el.planetone === curPlanet &&
+                  el.aspect === "квадратура" &&
+                  el.planettwo === elFound.planettwo
+                );
+              });
+              if (elFoundKvOne !== undefined && elFoundKvTwo !== undefined) {
+                console.log(
+                  "Тау квадрат - " +
+                    curPlanet +
+                    "." +
+                    elFoundKvOne.planetone +
+                    "." +
+                    elFoundKvTwo.planetone
+                );
+                console.log("*****************");
+              }
+              if (elFoundKvThree !== undefined && elFoundKvFour !== undefined) {
+                console.log(
+                  "Тау квадрат - " +
+                    curPlanet +
+                    "." +
+                    elFoundKvThree.planettwo +
+                    "." +
+                    elFoundKvFour.planettwo
+                );
+                console.log("*****************");
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   //Конфігурації
 }
 
