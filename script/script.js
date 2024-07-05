@@ -4,6 +4,8 @@ myButton.addEventListener("click", myFuncClick);
 const dbInput = document.querySelector("#date-bd");
 const dbEventInput = document.querySelector("#date-event");
 
+const titleTau = document.querySelector(".title-tau");
+
 const countOfYearInput = document.querySelector(".input-count-year");
 const planetMarsInput = document.querySelector("#aspect-mars");
 const planetMarsDegrInput = document.querySelector("#aspect-degr-mars");
@@ -770,7 +772,7 @@ function myFuncClick(evnt) {
     }
   }
 
-  const arrayTauKvadrat = [];
+  let arrayTauKvadrat = [];
 
   for (let b = 0; b < arrayTauAnaliz.length; b += 1) {
     const curElement = arrayTauAnaliz[b];
@@ -967,7 +969,36 @@ function myFuncClick(evnt) {
     }
   }
 
-  console.log(arrayTauKvadrat);
+  if (arrayTauKvadrat.length === 0) {
+    titleTau.textContent = "";
+  } else {
+    titleTau.textContent = "Тау квадратури";
+  }
+
+  const newElemetsTau = document.querySelectorAll(".tau-kvadrat-list > li");
+  for (const element of newElemetsTau) {
+    element.remove();
+  }
+
+  const listTauKvadrat = document.querySelector(".tau-kvadrat-list");
+
+  if (arrayTauKvadrat.length !== 0) {
+    for (let i = 0; i < arrayTauKvadrat.length; i += 1) {
+      const curElement = arrayTauKvadrat[i];
+      let itemTau = document.createElement("li");
+      itemTau.classList.add("tau-kvadrat-item");
+      listTauKvadrat.append(itemTau);
+      let paragTau = document.createElement("p");
+      paragTau.classList.add("tau-kvadrat-paragh");
+      paragTau.textContent =
+        curElement.planetOne +
+        " - " +
+        curElement.planetTwo +
+        " - " +
+        curElement.planetThree;
+      itemTau.append(paragTau);
+    }
+  }
 
   //Конфігурації
 }
