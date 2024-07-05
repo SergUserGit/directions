@@ -770,6 +770,8 @@ function myFuncClick(evnt) {
     }
   }
 
+  const arrayTauKvadrat = [];
+
   for (let b = 0; b < arrayTauAnaliz.length; b += 1) {
     const curElement = arrayTauAnaliz[b];
     const curPlanet = curElement.curPlanet;
@@ -817,26 +819,56 @@ function myFuncClick(evnt) {
               );
             });
             if (elFoundKvOne !== undefined && elFoundKvTwo !== undefined) {
-              console.log(
-                "Тау квадрат - " +
-                  curPlanet +
-                  "." +
-                  elFoundKvOne.planetone +
-                  "." +
-                  elFoundKvTwo.planetone
-              );
-              console.log("*****************");
+              if (arrayTauKvadrat.length === 0) {
+                const newObj = {
+                  planetOne: curPlanet,
+                  planetTwo: elFoundKvOne.planetone,
+                  planetThree: elFoundKvTwo.planetone,
+                };
+                arrayTauKvadrat.push(newObj);
+              } else {
+                const elFoundTau = arrayTauKvadrat.find(function (el) {
+                  return (
+                    el.planetOne === curPlanet &&
+                    el.planetTwo === elFoundKvOne.planetone &&
+                    el.planetThree === elFoundKvTwo.planetone
+                  );
+                });
+                if (elFoundTau === undefined) {
+                  const newObj = {
+                    planetOne: curPlanet,
+                    planetTwo: elFoundKvOne.planetone,
+                    planetThree: elFoundKvTwo.planetone,
+                  };
+                  arrayTauKvadrat.push(newObj);
+                }
+              }
             }
             if (elFoundKvThree !== undefined && elFoundKvFour !== undefined) {
-              console.log(
-                "Тау квадрат - " +
-                  curPlanet +
-                  "." +
-                  elFoundKvThree.planettwo +
-                  "." +
-                  elFoundKvFour.planettwo
-              );
-              console.log("*****************");
+              if (arrayTauKvadrat.length === 0) {
+                const newObj = {
+                  planetOne: curPlanet,
+                  planetTwo: elFoundKvThree.planetone,
+                  planetThree: elFoundKvFour.planetone,
+                };
+                arrayTauKvadrat.push(newObj);
+              } else {
+                const elFoundTau = arrayTauKvadrat.find(function (el) {
+                  return (
+                    el.planetOne === curPlanet &&
+                    el.planetTwo === elFoundKvThree.planetone &&
+                    el.planetThree === elFoundKvFour.planetone
+                  );
+                });
+                if (elFoundTau === undefined) {
+                  const newObj = {
+                    planetOne: curPlanet,
+                    planetTwo: elFoundKvThree.planetone,
+                    planetThree: elFoundKvFour.planetone,
+                  };
+                  arrayTauKvadrat.push(newObj);
+                }
+              }
             }
           } else {
             const elFound = curArray.find(function (el) {
@@ -877,26 +909,56 @@ function myFuncClick(evnt) {
                 );
               });
               if (elFoundKvOne !== undefined && elFoundKvTwo !== undefined) {
-                console.log(
-                  "Тау квадрат - " +
-                    curPlanet +
-                    "." +
-                    elFoundKvOne.planetone +
-                    "." +
-                    elFoundKvTwo.planetone
-                );
-                console.log("*****************");
+                if (arrayTauKvadrat.length === 0) {
+                  const newObj = {
+                    planetOne: curPlanet,
+                    planetTwo: elFoundKvOne.planetone,
+                    planetThree: elFoundKvTwo.planetone,
+                  };
+                  arrayTauKvadrat.push(newObj);
+                } else {
+                  const elFoundTau = arrayTauKvadrat.find(function (el) {
+                    return (
+                      el.planetOne === curPlanet &&
+                      el.planetTwo === elFoundKvOne.planetone &&
+                      el.planetThree === elFoundKvTwo.planetone
+                    );
+                  });
+                  if (elFoundTau === undefined) {
+                    const newObj = {
+                      planetOne: curPlanet,
+                      planetTwo: elFoundKvOne.planetone,
+                      planetThree: elFoundKvTwo.planetone,
+                    };
+                    arrayTauKvadrat.push(newObj);
+                  }
+                }
               }
               if (elFoundKvThree !== undefined && elFoundKvFour !== undefined) {
-                console.log(
-                  "Тау квадрат - " +
-                    curPlanet +
-                    "." +
-                    elFoundKvThree.planettwo +
-                    "." +
-                    elFoundKvFour.planettwo
-                );
-                console.log("*****************");
+                if (arrayTauKvadrat.length === 0) {
+                  const newObj = {
+                    planetOne: curPlanet,
+                    planetTwo: elFoundKvThree.planetone,
+                    planetThree: elFoundKvFour.planetone,
+                  };
+                  arrayTauKvadrat.push(newObj);
+                } else {
+                  const elFoundTau = arrayTauKvadrat.find(function (el) {
+                    return (
+                      el.planetOne === curPlanet &&
+                      el.planetTwo === elFoundKvThree.planetone &&
+                      el.planetThree === elFoundKvFour.planetone
+                    );
+                  });
+                  if (elFoundTau === undefined) {
+                    const newObj = {
+                      planetOne: curPlanet,
+                      planetTwo: elFoundKvThree.planetone,
+                      planetThree: elFoundKvFour.planetone,
+                    };
+                    arrayTauKvadrat.push(newObj);
+                  }
+                }
               }
             }
           }
@@ -904,6 +966,9 @@ function myFuncClick(evnt) {
       }
     }
   }
+
+  console.log(arrayTauKvadrat);
+
   //Конфігурації
 }
 
