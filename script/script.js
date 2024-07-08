@@ -5,6 +5,7 @@ const dbInput = document.querySelector("#date-bd");
 const dbEventInput = document.querySelector("#date-event");
 
 const titleTau = document.querySelector(".title-tau");
+const titleBisekstil = document.querySelector(".title-bisekstil");
 
 const countOfYearInput = document.querySelector(".input-count-year");
 const planetMarsInput = document.querySelector("#aspect-mars");
@@ -740,7 +741,43 @@ function myFuncClick(evnt) {
   //Конфігурації
   const arrayTauKvadrat = getArrayTau(curArray);
   renderDateTau(arrayTauKvadrat);
+
+  const arrayBisektil = getArraybisekstil(curArray);
+  renderDateBisekstil(arrayBisektil);
   //Конфігурації
+}
+
+function renderDateBisekstil(arrayBisektil) {
+  if (arrayBisektil.length === 0) {
+    titleBisekstil.textContent = "";
+  } else {
+    titleBisekstil.textContent = "Бісекстилі";
+  }
+
+  const newElemetsTau = document.querySelectorAll(".bisekstil-list > li");
+  for (const element of newElemetsTau) {
+    element.remove();
+  }
+
+  const listTauKvadrat = document.querySelector(".bisekstil-list");
+
+  if (arrayBisektil.length !== 0) {
+    for (let i = 0; i < arrayBisektil.length; i += 1) {
+      const curElement = arrayBisektil[i];
+      let itemTau = document.createElement("li");
+      itemTau.classList.add("bisekstil-item");
+      listTauKvadrat.append(itemTau);
+      let paragTau = document.createElement("p");
+      paragTau.classList.add("bisekstil-paragh");
+      paragTau.textContent =
+        curElement.planetOne +
+        " - " +
+        curElement.planetTwo +
+        " - " +
+        curElement.planetThree;
+      itemTau.append(paragTau);
+    }
+  }
 }
 
 function renderDateTau(arrayTauKvadrat) {
@@ -774,6 +811,240 @@ function renderDateTau(arrayTauKvadrat) {
       itemTau.append(paragTau);
     }
   }
+}
+
+function getArraybisekstil(curArray) {
+  let arrayKvadrat = [];
+  let arrayPlanetKvadrat = [];
+  for (let a = 0; a < curArray.length; a += 1) {
+    const curElem = curArray[a];
+
+    if (curElem.aspect === "cекстиль") {
+      const elFind = arrayPlanetKvadrat.indexOf(curElem.planetone);
+      if (elFind === -1) {
+        arrayPlanetKvadrat.push(curElem.planetone);
+      }
+      const newObj = {
+        planetOne: curElem.planetone,
+        planetTwo: curElem.planettwo,
+      };
+      arrayKvadrat.push(newObj);
+    }
+  }
+
+  let arrayTauAnaliz = [];
+
+  for (let a = 0; a < arrayPlanetKvadrat.length; a += 1) {
+    const curPlanet = arrayPlanetKvadrat[a];
+    const arrayPlanetKv = arrayKvadrat.filter(
+      (planetObj) => planetObj.planetOne === curPlanet
+    );
+    if (arrayPlanetKv.length > 1) {
+      newObj = {
+        curPlanet: curPlanet,
+        arrayAnalyz: arrayPlanetKv,
+      };
+      arrayTauAnaliz.push(newObj);
+    }
+  }
+
+  let arrayTauKvadrat = [];
+
+  for (let b = 0; b < arrayTauAnaliz.length; b += 1) {
+    const curElement = arrayTauAnaliz[b];
+    const curPlanet = curElement.curPlanet;
+    const curArrayAnalyz = curElement.arrayAnalyz;
+    for (let c = 0; c < curArrayAnalyz.length; c += 1) {
+      for (let d = 0; d < curArrayAnalyz.length; d += 1) {
+        const curElemOne = curArrayAnalyz[c];
+        const curElemTwo = curArrayAnalyz[d];
+        if (curElemOne.planetTwo !== curElemTwo.planetTwo) {
+          const elFound = curArray.find(function (el) {
+            return (
+              el.planetone === curElemOne.planetTwo &&
+              el.aspect === "тригон" &&
+              el.planettwo === curElemTwo.planetTwo
+            );
+          });
+          if (elFound !== undefined) {
+            const elFoundKvOne = curArray.find(function (el) {
+              return (
+                el.planetone === elFound.planetone &&
+                el.aspect === "cекстиль" &&
+                el.planettwo === curPlanet
+              );
+            });
+            const elFoundKvTwo = curArray.find(function (el) {
+              return (
+                el.planetone === elFound.planettwo &&
+                el.aspect === "cекстиль" &&
+                el.planettwo === curPlanet
+              );
+            });
+
+            const elFoundKvThree = curArray.find(function (el) {
+              return (
+                el.planetone === curPlanet &&
+                el.aspect === "cекстиль" &&
+                el.planettwo === elFound.planetone
+              );
+            });
+            const elFoundKvFour = curArray.find(function (el) {
+              return (
+                el.planetone === curPlanet &&
+                el.aspect === "cекстиль" &&
+                el.planettwo === elFound.planettwo
+              );
+            });
+            if (elFoundKvOne !== undefined && elFoundKvTwo !== undefined) {
+              if (arrayTauKvadrat.length === 0) {
+                const newObj = {
+                  planetOne: curPlanet,
+                  planetTwo: elFoundKvOne.planetone,
+                  planetThree: elFoundKvTwo.planetone,
+                };
+                arrayTauKvadrat.push(newObj);
+              } else {
+                const elFoundTau = arrayTauKvadrat.find(function (el) {
+                  return (
+                    el.planetOne === curPlanet &&
+                    el.planetTwo === elFoundKvOne.planetone &&
+                    el.planetThree === elFoundKvTwo.planetone
+                  );
+                });
+                if (elFoundTau === undefined) {
+                  const newObj = {
+                    planetOne: curPlanet,
+                    planetTwo: elFoundKvOne.planetone,
+                    planetThree: elFoundKvTwo.planetone,
+                  };
+                  arrayTauKvadrat.push(newObj);
+                }
+              }
+            }
+            if (elFoundKvThree !== undefined && elFoundKvFour !== undefined) {
+              if (arrayTauKvadrat.length === 0) {
+                const newObj = {
+                  planetOne: curPlanet,
+                  planetTwo: elFoundKvThree.planettwo,
+                  planetThree: elFoundKvFour.planettwo,
+                };
+                arrayTauKvadrat.push(newObj);
+              } else {
+                const elFoundTau = arrayTauKvadrat.find(function (el) {
+                  return (
+                    el.planetOne === curPlanet &&
+                    el.planetTwo === elFoundKvThree.planettwo &&
+                    el.planetThree === elFoundKvFour.planettwo
+                  );
+                });
+                if (elFoundTau === undefined) {
+                  const newObj = {
+                    planetOne: curPlanet,
+                    planetTwo: elFoundKvThree.planettwo,
+                    planetThree: elFoundKvFour.planettwo,
+                  };
+                  arrayTauKvadrat.push(newObj);
+                }
+              }
+            }
+          } else {
+            const elFound = curArray.find(function (el) {
+              return (
+                el.planetone === curElemTwo.planetTwo &&
+                el.aspect === "тригон" &&
+                el.planettwo === curElemOne.planetTwo
+              );
+            });
+            if (elFound !== undefined) {
+              const elFoundKvOne = curArray.find(function (el) {
+                return (
+                  el.planetone === elFound.planetone &&
+                  el.aspect === "cекстиль" &&
+                  el.planettwo === curPlanet
+                );
+              });
+              const elFoundKvTwo = curArray.find(function (el) {
+                return (
+                  el.planetone === elFound.planettwo &&
+                  el.aspect === "cекстиль" &&
+                  el.planettwo === curPlanet
+                );
+              });
+
+              const elFoundKvThree = curArray.find(function (el) {
+                return (
+                  el.planetone === curPlanet &&
+                  el.aspect === "cекстиль" &&
+                  el.planettwo === elFound.planetone
+                );
+              });
+              const elFoundKvFour = curArray.find(function (el) {
+                return (
+                  el.planetone === curPlanet &&
+                  el.aspect === "cекстиль" &&
+                  el.planettwo === elFound.planettwo
+                );
+              });
+              if (elFoundKvOne !== undefined && elFoundKvTwo !== undefined) {
+                if (arrayTauKvadrat.length === 0) {
+                  const newObj = {
+                    planetOne: curPlanet,
+                    planetTwo: elFoundKvOne.planetone,
+                    planetThree: elFoundKvTwo.planetone,
+                  };
+                  arrayTauKvadrat.push(newObj);
+                } else {
+                  const elFoundTau = arrayTauKvadrat.find(function (el) {
+                    return (
+                      el.planetOne === curPlanet &&
+                      el.planetTwo === elFoundKvOne.planetone &&
+                      el.planetThree === elFoundKvTwo.planetone
+                    );
+                  });
+                  if (elFoundTau === undefined) {
+                    const newObj = {
+                      planetOne: curPlanet,
+                      planetTwo: elFoundKvOne.planetone,
+                      planetThree: elFoundKvTwo.planetone,
+                    };
+                    arrayTauKvadrat.push(newObj);
+                  }
+                }
+              }
+              if (elFoundKvThree !== undefined && elFoundKvFour !== undefined) {
+                if (arrayTauKvadrat.length === 0) {
+                  const newObj = {
+                    planetOne: curPlanet,
+                    planetTwo: elFoundKvThree.planettwo,
+                    planetThree: elFoundKvFour.planettwo,
+                  };
+                  arrayTauKvadrat.push(newObj);
+                } else {
+                  const elFoundTau = arrayTauKvadrat.find(function (el) {
+                    return (
+                      el.planetOne === curPlanet &&
+                      el.planetTwo === elFoundKvThree.planettwo &&
+                      el.planetThree === elFoundKvFour.planettwo
+                    );
+                  });
+                  if (elFoundTau === undefined) {
+                    const newObj = {
+                      planetOne: curPlanet,
+                      planetTwo: elFoundKvThree.planettwo,
+                      planetThree: elFoundKvFour.planettwo,
+                    };
+                    arrayTauKvadrat.push(newObj);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return arrayTauKvadrat;
 }
 
 function getArrayTau(curArray) {
