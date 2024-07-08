@@ -738,6 +738,45 @@ function myFuncClick(evnt) {
   }
 
   //Конфігурації
+  const arrayTauKvadrat = getArrayTau(curArray);
+  renderDateTau(arrayTauKvadrat);
+  //Конфігурації
+}
+
+function renderDateTau(arrayTauKvadrat) {
+  if (arrayTauKvadrat.length === 0) {
+    titleTau.textContent = "";
+  } else {
+    titleTau.textContent = "Тау квадратури";
+  }
+
+  const newElemetsTau = document.querySelectorAll(".tau-kvadrat-list > li");
+  for (const element of newElemetsTau) {
+    element.remove();
+  }
+
+  const listTauKvadrat = document.querySelector(".tau-kvadrat-list");
+
+  if (arrayTauKvadrat.length !== 0) {
+    for (let i = 0; i < arrayTauKvadrat.length; i += 1) {
+      const curElement = arrayTauKvadrat[i];
+      let itemTau = document.createElement("li");
+      itemTau.classList.add("tau-kvadrat-item");
+      listTauKvadrat.append(itemTau);
+      let paragTau = document.createElement("p");
+      paragTau.classList.add("tau-kvadrat-paragh");
+      paragTau.textContent =
+        curElement.planetOne +
+        " - " +
+        curElement.planetTwo +
+        " - " +
+        curElement.planetThree;
+      itemTau.append(paragTau);
+    }
+  }
+}
+
+function getArrayTau(curArray) {
   let arrayKvadrat = [];
   let arrayPlanetKvadrat = [];
   for (let a = 0; a < curArray.length; a += 1) {
@@ -968,39 +1007,7 @@ function myFuncClick(evnt) {
       }
     }
   }
-
-  if (arrayTauKvadrat.length === 0) {
-    titleTau.textContent = "";
-  } else {
-    titleTau.textContent = "Тау квадратури";
-  }
-
-  const newElemetsTau = document.querySelectorAll(".tau-kvadrat-list > li");
-  for (const element of newElemetsTau) {
-    element.remove();
-  }
-
-  const listTauKvadrat = document.querySelector(".tau-kvadrat-list");
-
-  if (arrayTauKvadrat.length !== 0) {
-    for (let i = 0; i < arrayTauKvadrat.length; i += 1) {
-      const curElement = arrayTauKvadrat[i];
-      let itemTau = document.createElement("li");
-      itemTau.classList.add("tau-kvadrat-item");
-      listTauKvadrat.append(itemTau);
-      let paragTau = document.createElement("p");
-      paragTau.classList.add("tau-kvadrat-paragh");
-      paragTau.textContent =
-        curElement.planetOne +
-        " - " +
-        curElement.planetTwo +
-        " - " +
-        curElement.planetThree;
-      itemTau.append(paragTau);
-    }
-  }
-
-  //Конфігурації
+  return arrayTauKvadrat;
 }
 
 function changeElArOne(elem) {
