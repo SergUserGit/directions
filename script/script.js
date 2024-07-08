@@ -850,23 +850,23 @@ function myFuncClick(evnt) {
               if (arrayTauKvadrat.length === 0) {
                 const newObj = {
                   planetOne: curPlanet,
-                  planetTwo: elFoundKvThree.planetone,
-                  planetThree: elFoundKvFour.planetone,
+                  planetTwo: elFoundKvThree.planettwo,
+                  planetThree: elFoundKvFour.planettwo,
                 };
                 arrayTauKvadrat.push(newObj);
               } else {
                 const elFoundTau = arrayTauKvadrat.find(function (el) {
                   return (
                     el.planetOne === curPlanet &&
-                    el.planetTwo === elFoundKvThree.planetone &&
-                    el.planetThree === elFoundKvFour.planetone
+                    el.planetTwo === elFoundKvThree.planettwo &&
+                    el.planetThree === elFoundKvFour.planettwo
                   );
                 });
                 if (elFoundTau === undefined) {
                   const newObj = {
                     planetOne: curPlanet,
-                    planetTwo: elFoundKvThree.planetone,
-                    planetThree: elFoundKvFour.planetone,
+                    planetTwo: elFoundKvThree.planettwo,
+                    planetThree: elFoundKvFour.planettwo,
                   };
                   arrayTauKvadrat.push(newObj);
                 }
@@ -940,23 +940,23 @@ function myFuncClick(evnt) {
                 if (arrayTauKvadrat.length === 0) {
                   const newObj = {
                     planetOne: curPlanet,
-                    planetTwo: elFoundKvThree.planetone,
-                    planetThree: elFoundKvFour.planetone,
+                    planetTwo: elFoundKvThree.planettwo,
+                    planetThree: elFoundKvFour.planettwo,
                   };
                   arrayTauKvadrat.push(newObj);
                 } else {
                   const elFoundTau = arrayTauKvadrat.find(function (el) {
                     return (
                       el.planetOne === curPlanet &&
-                      el.planetTwo === elFoundKvThree.planetone &&
-                      el.planetThree === elFoundKvFour.planetone
+                      el.planetTwo === elFoundKvThree.planettwo &&
+                      el.planetThree === elFoundKvFour.planettwo
                     );
                   });
                   if (elFoundTau === undefined) {
                     const newObj = {
                       planetOne: curPlanet,
-                      planetTwo: elFoundKvThree.planetone,
-                      planetThree: elFoundKvFour.planetone,
+                      planetTwo: elFoundKvThree.planettwo,
+                      planetThree: elFoundKvFour.planettwo,
                     };
                     arrayTauKvadrat.push(newObj);
                   }

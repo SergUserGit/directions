@@ -305,6 +305,57 @@ li {
   font-weight: 700;
 }
 
+.title-tau {
+  text-align: center;
+  color: #5d0a3f;
+  letter-spacing: 0.2em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 1200px) {
+  .title-tau {
+    font-size: 90px;
+    line-height: 10%;
+    margin-bottom: 90px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .title-tau {
+    font-size: 22px;
+    line-height: 38%;
+    margin-bottom: 42px;
+  }
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .title-tau {
+    font-size: 33px;
+    line-height: 26%;
+    margin-bottom: 48px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .title-tau {
+    font-size: 59px;
+    line-height: 16%;
+    margin-bottom: 66px;
+  }
+}
+
+.tau-kvadrat-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
 .aspects-period {
   color: #000;
   font-style: italic;
@@ -313,9 +364,44 @@ li {
   cursor: pointer;
 }
 
+.tau-kvadrat-paragh {
+  color: rgb(23, 61, 15);
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1200px) {
+  .tau-kvadrat-paragh {
+    font-size: 40px;
+    line-height: 125%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .tau-kvadrat-paragh {
+    font-size: 36px;
+    line-height: 125%;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .tau-kvadrat-paragh {
+    font-size: 24px;
+    line-height: 185%;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .tau-kvadrat-paragh {
+    font-size: 15px;
+    line-height: 278%;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .aspects-period {
-    font-size: 40px;
+    font-size: 38px;
     line-height: 125%;
     width: 272px;
   }
