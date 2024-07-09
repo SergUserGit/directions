@@ -748,7 +748,55 @@ function myFuncClick(evnt) {
 
   const arrayBigTrigon = getArrayBigTrin(curArray);
   renderDateBigtrigon(arrayBigTrigon);
+
+  const arrayObiqueSail = getArrayObiqueSail(curArray);
+  console.log(arrayObiqueSail);
   //Конфігурації
+}
+
+function getArrayObiqueSail(curArray) {
+  for (let i = 0; i < curArray.length; i += 1) {
+    let curElement = curArray[i];
+    if (curElement.aspect === "тригон") {
+      const curPlanet = curElement.planetone;
+      const curPlanetTwo = curElement.planettwo;
+      const arrayPlanetAspOppjz = curArray.filter(
+        (planetObj) =>
+          planetObj.planetone === curPlanet && planetObj.aspect === "оппозиція"
+      );
+      for (let c = 0; c < arrayPlanetAspOppjz.length; c += 1) {
+        const curElOp = arrayPlanetAspOppjz[c];
+        if (curElOp.planettwo !== curPlanetTwo) {
+          const findSecstOne = curArray.find(function (el) {
+            return (
+              el.planetone === curElOp.planettwo &&
+              el.aspect === "cекстиль" &&
+              el.planettwo === curPlanetTwo
+            );
+          });
+          const findSecsTwo = curArray.find(function (el) {
+            return (
+              el.planetone === curPlanetTwo &&
+              el.aspect === "cекстиль" &&
+              el.planettwo === curElOp.planettwo
+            );
+          });
+
+          if (findSecstOne !== undefined) {
+            const findTrigOne = curArray.find(function (el) {
+              return (
+                el.planetone === findTrigOne.planetone &&
+                el.aspect === "тригон" &&
+                el.planettwo === curPlanet
+              );
+            });
+          } else {
+          }
+        }
+      }
+    }
+    //тригон оппозиція секстиль
+  }
 }
 
 function getArrayBigTrin(curArray) {
