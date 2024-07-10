@@ -785,11 +785,37 @@ function getArrayObiqueSail(curArray) {
           if (findSecstOne !== undefined) {
             const findTrigOne = curArray.find(function (el) {
               return (
-                el.planetone === findTrigOne.planetone &&
+                el.planetone === findSecstOne.planetone &&
                 el.aspect === "тригон" &&
                 el.planettwo === curPlanet
               );
             });
+            const findTrigTwo = curArray.find(function (el) {
+              return (
+                el.planetone === findSecstOne.planettwo &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === curPlanet
+              );
+            });
+            if (findTrigOne !== undefined && findTrigTwo !== undefined) {
+            } else {
+              const findTrigThree = curArray.find(function (el) {
+                return (
+                  el.planetone === curPlanet &&
+                  el.aspect === "тригон" &&
+                  el.planettwo === findSecstOne.planetone
+                );
+              });
+              const findTrigFour = curArray.find(function (el) {
+                return (
+                  el.planetone === curPlanet &&
+                  el.aspect === "оппозиція" &&
+                  el.planettwo === findSecstOne.planettwo
+                );
+              });
+              if (findTrigThree !== undefined && findTrigFour !== undefined) {
+              }
+            }
           } else {
           }
         }
