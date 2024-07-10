@@ -798,6 +798,10 @@ function getArrayObiqueSail(curArray) {
               );
             });
             if (findTrigOne !== undefined && findTrigTwo !== undefined) {
+              console.log("Планета №1 - " + curPlanet);
+              console.log("Планета №2 - " + findTrigOne.planetone);
+              console.log("Планета №3 - " + findTrigTwo.planetone);
+              console.log("**************");
             } else {
               const findTrigThree = curArray.find(function (el) {
                 return (
@@ -814,9 +818,54 @@ function getArrayObiqueSail(curArray) {
                 );
               });
               if (findTrigThree !== undefined && findTrigFour !== undefined) {
+                console.log("Планета №1 - " + curPlanet);
+                console.log("Планета №2 - " + findTrigThree.planettwo);
+                console.log("Планета №3 - " + findTrigFour.planettwo);
+                console.log("**************");
               }
             }
           } else {
+            const findTrigOne = curArray.find(function (el) {
+              return (
+                el.planetone === findSecsTwo.planetone &&
+                el.aspect === "тригон" &&
+                el.planettwo === curPlanet
+              );
+            });
+            const findTrigTwo = curArray.find(function (el) {
+              return (
+                el.planetone === findSecsTwo.planettwo &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === curPlanet
+              );
+            });
+            if (findTrigOne !== undefined && findTrigTwo !== undefined) {
+              console.log("Планета №1 - " + curPlanet);
+              console.log("Планета №2 - " + findTrigOne.planetone);
+              console.log("Планета №3 - " + findTrigTwo.planetone);
+              console.log("**************");
+            } else {
+              const findTrigThree = curArray.find(function (el) {
+                return (
+                  el.planetone === curPlanet &&
+                  el.aspect === "тригон" &&
+                  el.planettwo === findSecsTwo.planetone
+                );
+              });
+              const findTrigFour = curArray.find(function (el) {
+                return (
+                  el.planetone === curPlanet &&
+                  el.aspect === "оппозиція" &&
+                  el.planettwo === findSecsTwo.planettwo
+                );
+              });
+              if (findTrigThree !== undefined && findTrigFour !== undefined) {
+                console.log("Планета №1 - " + curPlanet);
+                console.log("Планета №2 - " + findTrigThree.planettwo);
+                console.log("Планета №3 - " + findTrigFour.planettwo);
+                console.log("**************");
+              }
+            }
           }
         }
       }
