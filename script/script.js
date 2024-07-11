@@ -741,6 +741,9 @@ function myFuncClick(evnt) {
   }
 
   //Конфігурації
+
+  //console.log(typeof window.screen.width);
+
   const arrayTauKvadrat = getArrayTau(curArray);
   renderDateTau(arrayTauKvadrat);
 
@@ -755,11 +758,28 @@ function myFuncClick(evnt) {
   //Конфігурації
 }
 
+function getMarginTitle() {
+  const windowScreen = window.screen.width;
+  if (windowScreen >= 320 && windowScreen <= 479) {
+    return "42px";
+  } else if (windowScreen >= 480 && windowScreen <= 767) {
+    return "48px";
+  } else if (windowScreen >= 768 && windowScreen <= 1199) {
+    return "66px";
+  } else if (windowScreen >= 1200) {
+    return "90px";
+  } else {
+    return "0px";
+  }
+}
+
 function renderDateObiqueSail(arrayObiqueSail) {
   if (arrayObiqueSail.length === 0) {
     titleObiquesail.textContent = "";
+    titleObiquesail.style.marginBottom = "0px";
   } else {
     titleObiquesail.textContent = "Косі паруса";
+    titleObiquesail.style.marginBottom = getMarginTitle();
   }
 
   const newElemetsTau = document.querySelectorAll(".obiquesail-list > li");
@@ -1233,8 +1253,10 @@ function getArrayBigTrin(curArray) {
 function renderDateBigtrigon(arrayBigtrigon) {
   if (arrayBigtrigon.length === 0) {
     titleBigtrigon.textContent = "";
+    titleBigtrigon.style.marginBottom = "0px";
   } else {
     titleBigtrigon.textContent = "Великі тригони";
+    titleBigtrigon.style.marginBottom = getMarginTitle();
   }
 
   const newElemetsTau = document.querySelectorAll(".bigtrigon-list > li");
@@ -1272,8 +1294,10 @@ function renderDateBigtrigon(arrayBigtrigon) {
 function renderDateBisekstil(arrayBisektil) {
   if (arrayBisektil.length === 0) {
     titleBisekstil.textContent = "";
+    titleBisekstil.style.marginBottom = "0px";
   } else {
     titleBisekstil.textContent = "Бісекстилі";
+    titleBisekstil.style.marginBottom = getMarginTitle();
   }
 
   const newElemetsTau = document.querySelectorAll(".bisekstil-list > li");
@@ -1311,8 +1335,10 @@ function renderDateBisekstil(arrayBisektil) {
 function renderDateTau(arrayTauKvadrat) {
   if (arrayTauKvadrat.length === 0) {
     titleTau.textContent = "";
+    titleTau.style.marginBottom = "0px";
   } else {
     titleTau.textContent = "Тау квадратури";
+    titleTau.style.marginBottom = getMarginTitle();
   }
 
   const newElemetsTau = document.querySelectorAll(".tau-kvadrat-list > li");
