@@ -476,7 +476,7 @@ li {
   justify-content: center;
   list-style: none;
   gap: 30px;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px;*/
 }
 
 .bisekstil-list {
@@ -486,7 +486,7 @@ li {
   justify-content: center;
   list-style: none;
   gap: 30px;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px;*/
 }
 
 .bigtrigon-list {
@@ -496,7 +496,7 @@ li {
   justify-content: center;
   list-style: none;
   gap: 30px;
-  margin-bottom: 60px;
+  /*  margin-bottom: 60px;*/
 }
 
 .obiquesail-list {
@@ -506,7 +506,7 @@ li {
   justify-content: center;
   list-style: none;
   gap: 30px;
-  margin-bottom: 60px;
+  /*  margin-bottom: 60px;*/
 }
 
 .aspects-period {

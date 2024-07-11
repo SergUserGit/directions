@@ -769,6 +769,12 @@ function renderDateObiqueSail(arrayObiqueSail) {
 
   const listTauKvadrat = document.querySelector(".obiquesail-list");
 
+  if (arrayObiqueSail.length === 0) {
+    listTauKvadrat.style.marginBottom = "0px";
+  } else {
+    listTauKvadrat.style.marginBottom = "60px";
+  }
+
   if (arrayObiqueSail.length !== 0) {
     for (let i = 0; i < arrayObiqueSail.length; i += 1) {
       const curElement = arrayObiqueSail[i];
@@ -1238,6 +1244,12 @@ function renderDateBigtrigon(arrayBigtrigon) {
 
   const listTauKvadrat = document.querySelector(".bigtrigon-list");
 
+  if (arrayBigtrigon === 0) {
+    listTauKvadrat.style.marginBottom = "0px";
+  } else {
+    listTauKvadrat.style.marginBottom = "60px";
+  }
+
   if (arrayBigtrigon.length !== 0) {
     for (let i = 0; i < arrayBigtrigon.length; i += 1) {
       const curElement = arrayBigtrigon[i];
@@ -1271,6 +1283,12 @@ function renderDateBisekstil(arrayBisektil) {
 
   const listTauKvadrat = document.querySelector(".bisekstil-list");
 
+  if (arrayBisektil.length === 0) {
+    listTauKvadrat.style.marginBottom = "0px";
+  } else {
+    listTauKvadrat.style.marginBottom = "60px";
+  }
+
   if (arrayBisektil.length !== 0) {
     for (let i = 0; i < arrayBisektil.length; i += 1) {
       const curElement = arrayBisektil[i];
@@ -1303,6 +1321,12 @@ function renderDateTau(arrayTauKvadrat) {
   }
 
   const listTauKvadrat = document.querySelector(".tau-kvadrat-list");
+
+  if (arrayTauKvadrat.length === 0) {
+    listTauKvadrat.style.marginBottom = "0px";
+  } else {
+    listTauKvadrat.style.marginBottom = "60px";
+  }
 
   if (arrayTauKvadrat.length !== 0) {
     for (let i = 0; i < arrayTauKvadrat.length; i += 1) {
