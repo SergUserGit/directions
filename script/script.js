@@ -773,6 +773,20 @@ function getMarginTitle() {
   }
 }
 
+function getArrayCart(curArray) {
+  let totalArray = [];
+
+  const arrayPlanetAspSekstil = curArray.filter(
+    (planetObj) => planetObj.aspect === "cекстиль"
+  );
+
+  for (let n = 0; n < arrayPlanetAspSekstil.length; n += 1) {
+    const curElem = arrayPlanetAspSekstil[n];
+  }
+
+  return totalArray;
+}
+
 function renderDateObiqueSail(arrayObiqueSail) {
   if (arrayObiqueSail.length === 0) {
     titleObiquesail.textContent = "";
