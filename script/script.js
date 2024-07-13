@@ -755,6 +755,9 @@ function myFuncClick(evnt) {
 
   const arrayObiqueSail = getArrayObiqueSail(curArray);
   renderDateObiqueSail(arrayObiqueSail);
+
+  const arrayCart = getArrayCart(curArray);
+
   //Конфігурації
 }
 
@@ -782,6 +785,55 @@ function getArrayCart(curArray) {
 
   for (let n = 0; n < arrayPlanetAspSekstil.length; n += 1) {
     const curElem = arrayPlanetAspSekstil[n];
+    const planetOne = curElem.planetone;
+    const planetTwo = curElem.planettwo;
+    const arrayPlanetAspTrigonOne = curArray.filter(
+      (planetObj) =>
+        planetObj.planetone === planetOne && planetObj.aspect === "тригон"
+    );
+    const arrayPlanetAspTrigonTwo = curArray.filter(
+      (planetObj) =>
+        planetObj.planetone === planetTwo && planetObj.aspect === "тригон"
+    );
+    for (let k = 0; k < arrayPlanetAspTrigonOne.length; k += 1) {
+      for (let m = 0; m < arrayPlanetAspTrigonTwo.length; m += 1) {
+        const elOne = arrayPlanetAspTrigonOne[k];
+        const elTwo = arrayPlanetAspTrigonTwo[m];
+        const planetThree = elOne.planettwo;
+        const planetFour = elTwo.planettwo;
+        if (planetThree !== planetFour) {
+          const findCartOne = curArray.find(function (el) {
+            return (
+              el.planetone === planetThree &&
+              el.aspect === "cекстиль" &&
+              el.planettwo === planetFour
+            );
+          });
+
+          const findCartTwo = curArray.find(function (el) {
+            return (
+              el.planetone === planetFour &&
+              el.aspect === "cекстиль" &&
+              el.planettwo === planetThree
+            );
+          });
+
+          if (findCartOne !== undefined) {
+            console.log("1 " + planetOne);
+            console.log("2 " + planetTwo);
+            console.log("3 " + planetThree);
+            console.log("4 " + planetFour);
+          } else {
+            if (findCartTwo !== undefined) {
+              console.log("1 " + planetOne);
+              console.log("2 " + planetTwo);
+              console.log("3 " + planetThree);
+              console.log("4 " + planetFour);
+            }
+          }
+        }
+      }
+    }
   }
 
   return totalArray;
