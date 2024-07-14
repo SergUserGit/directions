@@ -469,6 +469,47 @@ li {
   }
 }
 
+.title-cart {
+  text-align: center;
+  color: #752213;
+  letter-spacing: 0.2em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 1200px) {
+  .title-cart {
+    font-size: 90px;
+    line-height: 10%;
+    margin-bottom: 90px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .title-cart {
+    font-size: 22px;
+    line-height: 38%;
+    margin-bottom: 42px;
+  }
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .title-cart {
+    font-size: 33px;
+    line-height: 26%;
+    margin-bottom: 48px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .title-cart {
+    font-size: 59px;
+    line-height: 16%;
+    margin-bottom: 66px;
+  }
+}
+
 .tau-kvadrat-list {
   display: flex;
   flex-direction: column;
@@ -476,7 +517,6 @@ li {
   justify-content: center;
   list-style: none;
   gap: 30px;
-  /* margin-bottom: 60px;*/
 }
 
 .bisekstil-list {
@@ -486,7 +526,6 @@ li {
   justify-content: center;
   list-style: none;
   gap: 30px;
-  /* margin-bottom: 60px;*/
 }
 
 .bigtrigon-list {
@@ -496,7 +535,6 @@ li {
   justify-content: center;
   list-style: none;
   gap: 30px;
-  /*  margin-bottom: 60px;*/
 }
 
 .obiquesail-list {
@@ -506,7 +544,15 @@ li {
   justify-content: center;
   list-style: none;
   gap: 30px;
-  /*  margin-bottom: 60px;*/
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 30px;
 }
 
 .aspects-period {
@@ -656,6 +702,43 @@ li {
     line-height: 278%;
   }
 }
+
+.cart-paragh {
+  color: rgb(151, 34, 120);
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1200px) {
+  .cart-paragh {
+    font-size: 40px;
+    line-height: 125%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .cart-paragh {
+    font-size: 36px;
+    line-height: 125%;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .cart-paragh {
+    font-size: 24px;
+    line-height: 185%;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .cart-paragh {
+    font-size: 15px;
+    line-height: 278%;
+  }
+}
+
+
 
 @media screen and (min-width: 1200px) {
   .aspects-period {

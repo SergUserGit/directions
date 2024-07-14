@@ -8,6 +8,7 @@ const titleTau = document.querySelector(".title-tau");
 const titleBisekstil = document.querySelector(".title-bisekstil");
 const titleBigtrigon = document.querySelector(".title-bigtrigon");
 const titleObiquesail = document.querySelector(".title-obiquesail");
+const titleCart = document.querySelector(".title-cart");
 
 const countOfYearInput = document.querySelector(".input-count-year");
 const planetMarsInput = document.querySelector("#aspect-mars");
@@ -742,8 +743,6 @@ function myFuncClick(evnt) {
 
   //Конфігурації
 
-  //console.log(typeof window.screen.width);
-
   const arrayTauKvadrat = getArrayTau(curArray);
   renderDateTau(arrayTauKvadrat);
 
@@ -757,8 +756,51 @@ function myFuncClick(evnt) {
   renderDateObiqueSail(arrayObiqueSail);
 
   const arrayCart = getArrayCart(curArray);
-
+  renderDateCart(arrayCart);
   //Конфігурації
+}
+
+function renderDateCart(arrayCart) {
+  if (arrayCart.length === 0) {
+    titleCart.textContent = "";
+    titleCart.style.marginBottom = "0px";
+  } else {
+    titleCart.textContent = "Повозки";
+    titleCart.style.marginBottom = getMarginTitle();
+  }
+
+  const newElemetsTau = document.querySelectorAll(".cart-list > li");
+  for (const element of newElemetsTau) {
+    element.remove();
+  }
+
+  const listTauKvadrat = document.querySelector(".cart-list");
+
+  if (arrayCart.length === 0) {
+    listTauKvadrat.style.marginBottom = "0px";
+  } else {
+    listTauKvadrat.style.marginBottom = "60px";
+  }
+
+  if (arrayCart.length !== 0) {
+    for (let i = 0; i < arrayCart.length; i += 1) {
+      const curElement = arrayCart[i];
+      let itemTau = document.createElement("li");
+      itemTau.classList.add("cart-item");
+      listTauKvadrat.append(itemTau);
+      let paragTau = document.createElement("p");
+      paragTau.classList.add("cart-paragh");
+      paragTau.textContent =
+        curElement.planetOne +
+        " - " +
+        curElement.planetTwo +
+        " - " +
+        curElement.planetThree +
+        " - " +
+        curElement.planetFour;
+      itemTau.append(paragTau);
+    }
+  }
 }
 
 function getMarginTitle() {
@@ -861,10 +903,33 @@ function getArrayCart(curArray) {
               (findCartOppozOneFourTwo !== undefined &&
                 findCartOppozTwoThreeTwo !== undefined)
             ) {
-              console.log("1 " + planetOne);
-              console.log("2 " + planetTwo);
-              console.log("3 " + planetThree);
-              console.log("4 " + planetFour);
+              if (totalArray.length === 0) {
+                const newObj = {
+                  planetOne: planetOne,
+                  planetTwo: planetTwo,
+                  planetThree: planetThree,
+                  planetFour: planetFour,
+                };
+                totalArray.push(newObj);
+              } else {
+                const elFind = curArray.find(function (el) {
+                  return (
+                    el.planetOne === planetOne &&
+                    el.planetTwo === planetTwo &&
+                    el.planetThree === planetThree &&
+                    el.planetFour === planetFour
+                  );
+                });
+                if (elFind === undefined) {
+                  const newObj = {
+                    planetOne: planetOne,
+                    planetTwo: planetTwo,
+                    planetThree: planetThree,
+                    planetFour: planetFour,
+                  };
+                  totalArray.push(newObj);
+                }
+              }
             }
           } else {
             if (findCartTwo !== undefined) {
@@ -910,10 +975,33 @@ function getArrayCart(curArray) {
                 (findCartOppozOneFourTwo !== undefined &&
                   findCartOppozTwoThreeTwo !== undefined)
               ) {
-                console.log("1 " + planetOne);
-                console.log("2 " + planetTwo);
-                console.log("3 " + planetThree);
-                console.log("4 " + planetFour);
+                if (totalArray.length === 0) {
+                  const newObj = {
+                    planetOne: planetOne,
+                    planetTwo: planetTwo,
+                    planetThree: planetThree,
+                    planetFour: planetFour,
+                  };
+                  totalArray.push(newObj);
+                } else {
+                  const elFind = curArray.find(function (el) {
+                    return (
+                      el.planetOne === planetOne &&
+                      el.planetTwo === planetTwo &&
+                      el.planetThree === planetThree &&
+                      el.planetFour === planetFour
+                    );
+                  });
+                  if (elFind === undefined) {
+                    const newObj = {
+                      planetOne: planetOne,
+                      planetTwo: planetTwo,
+                      planetThree: planetThree,
+                      planetFour: planetFour,
+                    };
+                    totalArray.push(newObj);
+                  }
+                }
               }
             }
           }
