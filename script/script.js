@@ -819,16 +819,102 @@ function getArrayCart(curArray) {
           });
 
           if (findCartOne !== undefined) {
-            console.log("1 " + planetOne);
-            console.log("2 " + planetTwo);
-            console.log("3 " + planetThree);
-            console.log("4 " + planetFour);
-          } else {
-            if (findCartTwo !== undefined) {
+            const findCartOppozOneFourOne = curArray.find(function (el) {
+              return (
+                el.planetone === planetOne &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === planetFour
+              );
+            });
+
+            const findCartOppozOneFourTwo = curArray.find(function (el) {
+              return (
+                el.planetone === planetFour &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === planetOne
+              );
+            });
+
+            const findCartOppozTwoThreeOne = curArray.find(function (el) {
+              return (
+                el.planetone === planetTwo &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === planetThree
+              );
+            });
+
+            const findCartOppozTwoThreeTwo = curArray.find(function (el) {
+              return (
+                (el.planetone === el.planettwo) === planetThree &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === planetTwo
+              );
+            });
+
+            if (
+              (findCartOppozOneFourOne !== undefined &&
+                findCartOppozTwoThreeOne !== undefined) ||
+              (findCartOppozOneFourOne !== undefined &&
+                findCartOppozTwoThreeTwo !== undefined) ||
+              (findCartOppozOneFourTwo !== undefined &&
+                findCartOppozTwoThreeOne !== undefined) ||
+              (findCartOppozOneFourTwo !== undefined &&
+                findCartOppozTwoThreeTwo !== undefined)
+            ) {
               console.log("1 " + planetOne);
               console.log("2 " + planetTwo);
               console.log("3 " + planetThree);
               console.log("4 " + planetFour);
+            }
+          } else {
+            if (findCartTwo !== undefined) {
+              const findCartOppozOneFourOne = curArray.find(function (el) {
+                return (
+                  el.planetone === planetOne &&
+                  el.aspect === "оппозиція" &&
+                  el.planettwo === planetFour
+                );
+              });
+
+              const findCartOppozOneFourTwo = curArray.find(function (el) {
+                return (
+                  el.planetone === planetFour &&
+                  el.aspect === "оппозиція" &&
+                  el.planettwo === planetOne
+                );
+              });
+
+              const findCartOppozTwoThreeOne = curArray.find(function (el) {
+                return (
+                  el.planetone === planetTwo &&
+                  el.aspect === "оппозиція" &&
+                  el.planettwo === planetThree
+                );
+              });
+
+              const findCartOppozTwoThreeTwo = curArray.find(function (el) {
+                return (
+                  (el.planetone === el.planettwo) === planetThree &&
+                  el.aspect === "оппозиція" &&
+                  el.planettwo === planetTwo
+                );
+              });
+
+              if (
+                (findCartOppozOneFourOne !== undefined &&
+                  findCartOppozTwoThreeOne !== undefined) ||
+                (findCartOppozOneFourOne !== undefined &&
+                  findCartOppozTwoThreeTwo !== undefined) ||
+                (findCartOppozOneFourTwo !== undefined &&
+                  findCartOppozTwoThreeOne !== undefined) ||
+                (findCartOppozOneFourTwo !== undefined &&
+                  findCartOppozTwoThreeTwo !== undefined)
+              ) {
+                console.log("1 " + planetOne);
+                console.log("2 " + planetTwo);
+                console.log("3 " + planetThree);
+                console.log("4 " + planetFour);
+              }
             }
           }
         }
