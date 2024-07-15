@@ -9,6 +9,7 @@ const titleBisekstil = document.querySelector(".title-bisekstil");
 const titleBigtrigon = document.querySelector(".title-bigtrigon");
 const titleObiquesail = document.querySelector(".title-obiquesail");
 const titleCart = document.querySelector(".title-cart");
+const tutleBigSquare = document.querySelector(".title-bigsquare");
 
 const countOfYearInput = document.querySelector(".input-count-year");
 const planetMarsInput = document.querySelector("#aspect-mars");
@@ -757,7 +758,53 @@ function myFuncClick(evnt) {
 
   const arrayCart = getArrayCart(curArray);
   renderDateCart(arrayCart);
+
+  const arrayBigSquare = getArrayBigSquare(curArray);
+  renderDateBigSquare(arrayBigSquare);
   //Конфігурації
+}
+
+function renderDateBigSquare(arrayBigSquare) {
+  if (arrayBigSquare.length === 0) {
+    tutleBigSquare.textContent = "";
+    tutleBigSquare.style.marginBottom = "0px";
+  } else {
+    tutleBigSquare.textContent = "Великі квадрати";
+    tutleBigSquare.style.marginBottom = getMarginTitle();
+  }
+
+  const newElemetsTau = document.querySelectorAll(".bigsquare-list > li");
+  for (const element of newElemetsTau) {
+    element.remove();
+  }
+
+  const listTauKvadrat = document.querySelector(".bigsquare-list");
+
+  if (arrayBigSquare.length === 0) {
+    listTauKvadrat.style.marginBottom = "0px";
+  } else {
+    listTauKvadrat.style.marginBottom = "60px";
+  }
+
+  if (arrayBigSquare.length !== 0) {
+    for (let i = 0; i < arrayBigSquare.length; i += 1) {
+      const curElement = arrayBigSquare[i];
+      let itemTau = document.createElement("li");
+      itemTau.classList.add("bigsquare-item");
+      listTauKvadrat.append(itemTau);
+      let paragTau = document.createElement("p");
+      paragTau.classList.add("bigsquare-paragh");
+      paragTau.textContent =
+        curElement.planetOne +
+        " - " +
+        curElement.planetTwo +
+        " - " +
+        curElement.planetThree +
+        " - " +
+        curElement.planetFour;
+      itemTau.append(paragTau);
+    }
+  }
 }
 
 function renderDateCart(arrayCart) {
@@ -856,6 +903,201 @@ function getArrayCart(curArray) {
             return (
               el.planetone === planetFour &&
               el.aspect === "cекстиль" &&
+              el.planettwo === planetThree
+            );
+          });
+
+          if (findCartOne !== undefined) {
+            const findCartOppozOneFourOne = curArray.find(function (el) {
+              return (
+                el.planetone === planetOne &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === planetFour
+              );
+            });
+
+            const findCartOppozOneFourTwo = curArray.find(function (el) {
+              return (
+                el.planetone === planetFour &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === planetOne
+              );
+            });
+
+            const findCartOppozTwoThreeOne = curArray.find(function (el) {
+              return (
+                el.planetone === planetTwo &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === planetThree
+              );
+            });
+
+            const findCartOppozTwoThreeTwo = curArray.find(function (el) {
+              return (
+                (el.planetone === el.planettwo) === planetThree &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === planetTwo
+              );
+            });
+
+            if (
+              (findCartOppozOneFourOne !== undefined &&
+                findCartOppozTwoThreeOne !== undefined) ||
+              (findCartOppozOneFourOne !== undefined &&
+                findCartOppozTwoThreeTwo !== undefined) ||
+              (findCartOppozOneFourTwo !== undefined &&
+                findCartOppozTwoThreeOne !== undefined) ||
+              (findCartOppozOneFourTwo !== undefined &&
+                findCartOppozTwoThreeTwo !== undefined)
+            ) {
+              if (totalArray.length === 0) {
+                const newObj = {
+                  planetOne: planetOne,
+                  planetTwo: planetTwo,
+                  planetThree: planetThree,
+                  planetFour: planetFour,
+                };
+                totalArray.push(newObj);
+              } else {
+                const elFind = curArray.find(function (el) {
+                  return (
+                    el.planetOne === planetOne &&
+                    el.planetTwo === planetTwo &&
+                    el.planetThree === planetThree &&
+                    el.planetFour === planetFour
+                  );
+                });
+                if (elFind === undefined) {
+                  const newObj = {
+                    planetOne: planetOne,
+                    planetTwo: planetTwo,
+                    planetThree: planetThree,
+                    planetFour: planetFour,
+                  };
+                  totalArray.push(newObj);
+                }
+              }
+            }
+          } else {
+            if (findCartTwo !== undefined) {
+              const findCartOppozOneFourOne = curArray.find(function (el) {
+                return (
+                  el.planetone === planetOne &&
+                  el.aspect === "оппозиція" &&
+                  el.planettwo === planetFour
+                );
+              });
+
+              const findCartOppozOneFourTwo = curArray.find(function (el) {
+                return (
+                  el.planetone === planetFour &&
+                  el.aspect === "оппозиція" &&
+                  el.planettwo === planetOne
+                );
+              });
+
+              const findCartOppozTwoThreeOne = curArray.find(function (el) {
+                return (
+                  el.planetone === planetTwo &&
+                  el.aspect === "оппозиція" &&
+                  el.planettwo === planetThree
+                );
+              });
+
+              const findCartOppozTwoThreeTwo = curArray.find(function (el) {
+                return (
+                  (el.planetone === el.planettwo) === planetThree &&
+                  el.aspect === "оппозиція" &&
+                  el.planettwo === planetTwo
+                );
+              });
+
+              if (
+                (findCartOppozOneFourOne !== undefined &&
+                  findCartOppozTwoThreeOne !== undefined) ||
+                (findCartOppozOneFourOne !== undefined &&
+                  findCartOppozTwoThreeTwo !== undefined) ||
+                (findCartOppozOneFourTwo !== undefined &&
+                  findCartOppozTwoThreeOne !== undefined) ||
+                (findCartOppozOneFourTwo !== undefined &&
+                  findCartOppozTwoThreeTwo !== undefined)
+              ) {
+                if (totalArray.length === 0) {
+                  const newObj = {
+                    planetOne: planetOne,
+                    planetTwo: planetTwo,
+                    planetThree: planetThree,
+                    planetFour: planetFour,
+                  };
+                  totalArray.push(newObj);
+                } else {
+                  const elFind = curArray.find(function (el) {
+                    return (
+                      el.planetOne === planetOne &&
+                      el.planetTwo === planetTwo &&
+                      el.planetThree === planetThree &&
+                      el.planetFour === planetFour
+                    );
+                  });
+                  if (elFind === undefined) {
+                    const newObj = {
+                      planetOne: planetOne,
+                      planetTwo: planetTwo,
+                      planetThree: planetThree,
+                      planetFour: planetFour,
+                    };
+                    totalArray.push(newObj);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return totalArray;
+}
+
+function getArrayBigSquare(curArray) {
+  let totalArray = [];
+
+  const arrayPlanetAspSekstil = curArray.filter(
+    (planetObj) => planetObj.aspect === "квадратура"
+  );
+
+  for (let n = 0; n < arrayPlanetAspSekstil.length; n += 1) {
+    const curElem = arrayPlanetAspSekstil[n];
+    const planetOne = curElem.planetone;
+    const planetTwo = curElem.planettwo;
+    const arrayPlanetAspTrigonOne = curArray.filter(
+      (planetObj) =>
+        planetObj.planetone === planetOne && planetObj.aspect === "квадратура"
+    );
+    const arrayPlanetAspTrigonTwo = curArray.filter(
+      (planetObj) =>
+        planetObj.planetone === planetTwo && planetObj.aspect === "квадратура"
+    );
+    for (let k = 0; k < arrayPlanetAspTrigonOne.length; k += 1) {
+      for (let m = 0; m < arrayPlanetAspTrigonTwo.length; m += 1) {
+        const elOne = arrayPlanetAspTrigonOne[k];
+        const elTwo = arrayPlanetAspTrigonTwo[m];
+        const planetThree = elOne.planettwo;
+        const planetFour = elTwo.planettwo;
+        if (planetThree !== planetFour) {
+          const findCartOne = curArray.find(function (el) {
+            return (
+              el.planetone === planetThree &&
+              el.aspect === "квадратура" &&
+              el.planettwo === planetFour
+            );
+          });
+
+          const findCartTwo = curArray.find(function (el) {
+            return (
+              el.planetone === planetFour &&
+              el.aspect === "квадратура" &&
               el.planettwo === planetThree
             );
           });
