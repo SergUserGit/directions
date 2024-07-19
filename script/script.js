@@ -760,7 +760,76 @@ function myFuncClick(evnt) {
 
   const arrayBigSquare = getArrayBigSquare(curArray);
   renderDateBigSquare(arrayBigSquare);
+
+  const arrayTrapecia = getArrayTrapecia(curArray);
+
   //Конфігурації
+}
+
+function getArrayTrapecia(curArray) {
+  let totalArray = [];
+
+  const arrayPlanetAspSekstil = curArray.filter(
+    (planetObj) => planetObj.aspect === "cекстиль"
+  );
+
+  for (let n = 0; n < arrayPlanetAspSekstil.length; n += 1) {
+    const curElem = arrayPlanetAspSekstil[n];
+    const planetOne = curElem.planetone;
+    const planetTwo = curElem.planettwo;
+    const arrayPlanetAspTrigonOne = curArray.filter(
+      (planetObj) =>
+        planetObj.planetone === planetOne && planetObj.aspect === "cекстиль"
+    );
+    const arrayPlanetAspTrigonTwo = curArray.filter(
+      (planetObj) =>
+        planetObj.planetone === planetTwo && planetObj.aspect === "cекстиль"
+    );
+
+    for (let k = 0; k < arrayPlanetAspTrigonOne.length; k += 1) {
+      for (let m = 0; m < arrayPlanetAspTrigonTwo.length; m += 1) {
+        const elOne = arrayPlanetAspTrigonOne[k];
+        const planetThree = elOne.planettwo;
+
+        const elTwo = arrayPlanetAspTrigonTwo[m];
+        const planetFour = elTwo.planettwo;
+
+        if (planetThree !== planetFour) {
+          const findCartOne = curArray.find(function (el) {
+            return (
+              el.planetone === planetThree &&
+              el.aspect === "оппозиція" &&
+              el.planettwo === planetFour
+            );
+          });
+
+          const findCartTwo = curArray.find(function (el) {
+            return (
+              el.planetone === planetFour &&
+              el.aspect === "оппозиція" &&
+              el.planettwo === planetThree
+            );
+          });
+
+          if (findCartOne !== undefined) {
+            console.log("Планета №1 - " + planetOne);
+            console.log("Планета №2 - " + planetTwo);
+            console.log("Планета №3 - " + planetThree);
+            console.log("Планета №4 - " + planetFour);
+          } else {
+            if (findCartTwo !== undefined) {
+              console.log("Планета №1 - " + planetOne);
+              console.log("Планета №2 - " + planetTwo);
+              console.log("Планета №3 - " + planetThree);
+              console.log("Планета №4 - " + planetFour);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return totalArray;
 }
 
 function renderDateBigSquare(arrayBigSquare) {
