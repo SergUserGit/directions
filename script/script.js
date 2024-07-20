@@ -812,16 +812,95 @@ function getArrayTrapecia(curArray) {
           });
 
           if (findCartOne !== undefined) {
-            console.log("Планета №1 - " + planetOne);
-            console.log("Планета №2 - " + planetTwo);
-            console.log("Планета №3 - " + planetThree);
-            console.log("Планета №4 - " + planetFour);
-          } else {
-            if (findCartTwo !== undefined) {
+            const findOneVariant = curArray.find(function (el) {
+              return (
+                el.planetone === planetOne &&
+                el.aspect === "тригон" &&
+                el.planettwo === planetFour
+              );
+            });
+            const findTwoVariant = curArray.find(function (el) {
+              return (
+                el.planetone === planetFour &&
+                el.aspect === "тригон" &&
+                el.planettwo === planetOne
+              );
+            });
+            const findThreeVariant = curArray.find(function (el) {
+              return (
+                el.planetone === planetTwo &&
+                el.aspect === "тригон" &&
+                el.planettwo === planetThree
+              );
+            });
+            const findFourVariant = curArray.find(function (el) {
+              return (
+                el.planetone === planetThree &&
+                el.aspect === "тригон" &&
+                el.planettwo === planetTwo
+              );
+            });
+            if (
+              (findOneVariant !== undefined &&
+                findThreeVariant !== undefined) ||
+              (findOneVariant !== undefined && findFourVariant !== undefined) ||
+              (findTwoVariant !== undefined &&
+                findThreeVariant !== undefined) ||
+              (findTwoVariant !== undefined && findFourVariant !== undefined)
+            ) {
+              console.log("Трапеция");
               console.log("Планета №1 - " + planetOne);
               console.log("Планета №2 - " + planetTwo);
               console.log("Планета №3 - " + planetThree);
               console.log("Планета №4 - " + planetFour);
+              console.log("**************************");
+            }
+          } else {
+            if (findCartTwo !== undefined) {
+              const findOneVariant = curArray.find(function (el) {
+                return (
+                  el.planetone === planetOne &&
+                  el.aspect === "тригон" &&
+                  el.planettwo === planetFour
+                );
+              });
+              const findTwoVariant = curArray.find(function (el) {
+                return (
+                  el.planetone === planetFour &&
+                  el.aspect === "тригон" &&
+                  el.planettwo === planetOne
+                );
+              });
+              const findThreeVariant = curArray.find(function (el) {
+                return (
+                  el.planetone === planetTwo &&
+                  el.aspect === "тригон" &&
+                  el.planettwo === planetThree
+                );
+              });
+              const findFourVariant = curArray.find(function (el) {
+                return (
+                  el.planetone === planetThree &&
+                  el.aspect === "тригон" &&
+                  el.planettwo === planetTwo
+                );
+              });
+              if (
+                (findOneVariant !== undefined &&
+                  findThreeVariant !== undefined) ||
+                (findOneVariant !== undefined &&
+                  findFourVariant !== undefined) ||
+                (findTwoVariant !== undefined &&
+                  findThreeVariant !== undefined) ||
+                (findTwoVariant !== undefined && findFourVariant !== undefined)
+              ) {
+                console.log("Трапеция");
+                console.log("Планета №1 - " + planetOne);
+                console.log("Планета №2 - " + planetTwo);
+                console.log("Планета №3 - " + planetThree);
+                console.log("Планета №4 - " + planetFour);
+                console.log("**************************");
+              }
             }
           }
         }
