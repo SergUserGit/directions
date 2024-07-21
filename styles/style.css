@@ -552,6 +552,50 @@ li {
   }
 }
 
+
+.title-trapecia {
+  text-align: center;
+  color: #073d17;
+  letter-spacing: 0.2em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 1200px) {
+  .title-trapecia {
+    font-size: 90px;
+    line-height: 10%;
+    margin-bottom: 90px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .title-trapecia {
+    font-size: 22px;
+    line-height: 38%;
+    margin-bottom: 42px;
+  }
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .title-trapecia {
+    font-size: 33px;
+    line-height: 26%;
+    margin-bottom: 48px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .title-trapecia {
+    font-size: 59px;
+    line-height: 16%;
+    margin-bottom: 66px;
+  }
+}
+
+/*title-trapecia*/
+
 .tau-kvadrat-list {
   display: flex;
   flex-direction: column;
@@ -588,6 +632,15 @@ li {
   gap: 30px;
 }
 
+.trapecia-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 30px;
+}
+
 .cart-list {
   display: flex;
   flex-direction: column;
@@ -612,6 +665,43 @@ li {
   font-weight: 700;
   font-family: "Roboto", sans-serif;
   cursor: pointer;
+}
+
+
+
+.trapecia-paragh {
+  color: rgb(61, 15, 50);
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1200px) {
+  .trapecia-paragh {
+    font-size: 40px;
+    line-height: 125%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .trapecia-paragh {
+    font-size: 36px;
+    line-height: 125%;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .trapecia-paragh {
+    font-size: 24px;
+    line-height: 185%;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .trapecia-paragh {
+    font-size: 15px;
+    line-height: 278%;
+  }
 }
 
 .tau-kvadrat-paragh {

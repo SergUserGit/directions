@@ -10,6 +10,7 @@ const titleBigtrigon = document.querySelector(".title-bigtrigon");
 const titleObiquesail = document.querySelector(".title-obiquesail");
 const titleCart = document.querySelector(".title-cart");
 const tutleBigSquare = document.querySelector(".title-bigsquare");
+const titleTrapecia = document.querySelector(".title-trapecia");
 
 const countOfYearInput = document.querySelector(".input-count-year");
 const planetMarsInput = document.querySelector("#aspect-mars");
@@ -762,8 +763,87 @@ function myFuncClick(evnt) {
   renderDateBigSquare(arrayBigSquare);
 
   const arrayTrapecia = getArrayTrapecia(curArray);
-
+  renderDateTrapecia(arrayTrapecia);
   //Конфігурації
+}
+
+function renderDateTrapecia(arrayTrapecia) {
+  if (arrayTrapecia.length === 0) {
+    titleTrapecia.textContent = "";
+    titleTrapecia.style.marginBottom = "0px";
+  } else {
+    titleTrapecia.textContent = "Трапеції";
+    titleTrapecia.style.marginBottom = getMarginTitle();
+  }
+
+  const newElemetsTau = document.querySelectorAll(".trapecia-list > li");
+  for (const element of newElemetsTau) {
+    element.remove();
+  }
+
+  const listTauKvadrat = document.querySelector(".trapecia-list");
+
+  if (arrayTrapecia.length === 0) {
+    listTauKvadrat.style.marginBottom = "0px";
+  } else {
+    listTauKvadrat.style.marginBottom = "60px";
+  }
+
+  if (arrayTrapecia.length !== 0) {
+    for (let i = 0; i < arrayTrapecia.length; i += 1) {
+      const curElement = arrayTrapecia[i];
+      let itemTau = document.createElement("li");
+      itemTau.classList.add("trapecia-item");
+      listTauKvadrat.append(itemTau);
+      let paragTau = document.createElement("p");
+      paragTau.classList.add("trapecia-paragh");
+      paragTau.textContent =
+        curElement.planetOne +
+        " - " +
+        curElement.planetTwo +
+        " - " +
+        curElement.planetThree +
+        " - " +
+        curElement.planetFour;
+      itemTau.append(paragTau);
+    }
+  }
+}
+
+function pushElementsToArrayTrapecia(
+  totalArray,
+  planetOne,
+  planetTwo,
+  planetThree,
+  planetFour
+) {
+  if (totalArray.length === 0) {
+    const newObj = {
+      planetOne: planetOne,
+      planetTwo: planetTwo,
+      planetThree: planetThree,
+      planetFour: planetFour,
+    };
+    totalArray.push(newObj);
+  } else {
+    const elFind = totalArray.find(function (el) {
+      return (
+        el.planetOne === planetOne &&
+        el.planetTwo === planetTwo &&
+        el.planetThree === planetThree &&
+        el.planetFour === planetFour
+      );
+    });
+    if (elFind === undefined) {
+      const newObj = {
+        planetOne: planetOne,
+        planetTwo: planetTwo,
+        planetThree: planetThree,
+        planetFour: planetFour,
+      };
+      totalArray.push(newObj);
+    }
+  }
 }
 
 function getArrayTrapecia(curArray) {
@@ -848,12 +928,13 @@ function getArrayTrapecia(curArray) {
                 findThreeVariant !== undefined) ||
               (findTwoVariant !== undefined && findFourVariant !== undefined)
             ) {
-              console.log("Трапеция");
-              console.log("Планета №1 - " + planetOne);
-              console.log("Планета №2 - " + planetTwo);
-              console.log("Планета №3 - " + planetThree);
-              console.log("Планета №4 - " + planetFour);
-              console.log("**************************");
+              pushElementsToArrayTrapecia(
+                totalArray,
+                planetOne,
+                planetTwo,
+                planetThree,
+                planetFour
+              );
             }
           } else {
             if (findCartTwo !== undefined) {
@@ -894,12 +975,13 @@ function getArrayTrapecia(curArray) {
                   findThreeVariant !== undefined) ||
                 (findTwoVariant !== undefined && findFourVariant !== undefined)
               ) {
-                console.log("Трапеция");
-                console.log("Планета №1 - " + planetOne);
-                console.log("Планета №2 - " + planetTwo);
-                console.log("Планета №3 - " + planetThree);
-                console.log("Планета №4 - " + planetFour);
-                console.log("**************************");
+                pushElementsToArrayTrapecia(
+                  totalArray,
+                  planetOne,
+                  planetTwo,
+                  planetThree,
+                  planetFour
+                );
               }
             }
           }
@@ -1110,7 +1192,7 @@ function getArrayCart(curArray) {
               };
               totalArray.push(newObj);
             } else {
-              const elFind = curArray.find(function (el) {
+              const elFind = totalArray.find(function (el) {
                 return (
                   el.planetOne === planetOne &&
                   el.planetTwo === planetTwo &&
@@ -1182,7 +1264,7 @@ function getArrayCart(curArray) {
                 };
                 totalArray.push(newObj);
               } else {
-                const elFind = curArray.find(function (el) {
+                const elFind = totalArray.find(function (el) {
                   return (
                     el.planetOne === planetOne &&
                     el.planetTwo === planetTwo &&
@@ -1304,7 +1386,7 @@ function getArrayBigSquare(curArray) {
                 };
                 totalArray.push(newObj);
               } else {
-                const elFind = curArray.find(function (el) {
+                const elFind = totalArray.find(function (el) {
                   return (
                     el.planetOne === planetOne &&
                     el.planetTwo === planetTwo &&
@@ -1376,7 +1458,7 @@ function getArrayBigSquare(curArray) {
                   };
                   totalArray.push(newObj);
                 } else {
-                  const elFind = curArray.find(function (el) {
+                  const elFind = totalArray.find(function (el) {
                     return (
                       el.planetOne === planetOne &&
                       el.planetTwo === planetTwo &&
