@@ -764,7 +764,66 @@ function myFuncClick(evnt) {
 
   const arrayTrapecia = getArrayTrapecia(curArray);
   renderDateTrapecia(arrayTrapecia);
+
+  const arraySail = getArraySail(curArray);
+
   //Конфігурації
+}
+
+function getArraySail(curArray) {
+  const arrayPlanetAspSekstil = curArray.filter(
+    (planetObj) => planetObj.aspect === "cекстиль"
+  );
+
+  let arrayUnicalPlanet = [];
+
+  for (let i = 0; i < arrayPlanetAspSekstil.length; i += 1) {
+    const curElem = arrayPlanetAspSekstil[i];
+    if (arrayUnicalPlanet.length === 0) {
+      const newObj = {
+        planet: curElem.planetone,
+        count: 1,
+      };
+      arrayUnicalPlanet.push(newObj);
+    } else {
+      const elFind = arrayUnicalPlanet.find(function (el) {
+        return el.planet === curElem.planetone;
+      });
+      if (elFind === undefined) {
+        const newObj = {
+          planet: curElem.planetone,
+          count: 1,
+        };
+        arrayUnicalPlanet.push(newObj);
+      } else {
+        elFind.count += 1;
+      }
+    }
+  }
+
+  const arrayBiggerOne = arrayUnicalPlanet.filter(
+    (planetObj) => planetObj.count > 1
+  );
+
+  for (let a = 0; a < arrayBiggerOne.length; a += 1) {
+    const curElem = arrayBiggerOne[a];
+    const planetOne = curElem.planet;
+    const arrayCurSekstil = arrayPlanetAspSekstil.filter(
+      (planetObj) => planetObj.planetone === planetOne
+    );
+    for (let b = 0; b < arrayCurSekstil.length; b += 1) {
+      for (let c = 0; c < arrayCurSekstil.length; c += 1) {
+        const planetTwo = arrayCurSekstil[b].planettwo;
+        const planetThree = arrayCurSekstil[c].planettwo;
+        if (planetTwo !== planetThree) {
+          console.log("1 - " + planetOne);
+          console.log("2 - " + planetTwo);
+          console.log("3 - " + planetThree);
+          console.log("**********************");
+        }
+      }
+    }
+  }
 }
 
 function renderDateTrapecia(arrayTrapecia) {
