@@ -873,12 +873,49 @@ function getArraySail(curArray) {
           }
 
           for (let q = 0; q < arrayPlanetQual.length; q += 1) {
-            const elOne = arrayPlanetQual[q];
-            console.log("Планета №1 - " + planetOne);
-            console.log("Планета №2 - " + planetTwo);
-            console.log("Планета №3 - " + planetThree);
-            console.log("Планета №4 - " + elOne);
-            console.log("************************");
+            const planetFour = arrayPlanetQual[q];
+
+            const findOneVariant = curArray.find(function (el) {
+              return (
+                el.planetone === planetOne &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === planetFour
+              );
+            });
+            const findTwoVariant = curArray.find(function (el) {
+              return (
+                el.planetone === planetFour &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === planetOne
+              );
+            });
+            const findThreeVariant = curArray.find(function (el) {
+              return (
+                el.planetone === planetTwo &&
+                el.aspect === "тригон" &&
+                el.planettwo === planetThree
+              );
+            });
+            const findFourVariant = curArray.find(function (el) {
+              return (
+                el.planetone === planetThree &&
+                el.aspect === "тригон" &&
+                el.planettwo === planetTwo
+              );
+            });
+
+            if (
+              (findOneVariant !== undefined &&
+                findThreeVariant !== undefined) ||
+              (findOneVariant !== undefined && findFourVariant !== undefined) ||
+              (findTwoVariant !== undefined &&
+                findThreeVariant !== undefined) ||
+              (findTwoVariant !== undefined && findFourVariant !== undefined)
+            ) {
+              console.log("Парус");
+
+              console.log("*************************");
+            }
           }
         }
       }
