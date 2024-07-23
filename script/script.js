@@ -775,6 +775,10 @@ function getArraySail(curArray) {
     (planetObj) => planetObj.aspect === "cекстиль"
   );
 
+  const arrayPlanetAspTrigon = curArray.filter(
+    (planetObj) => planetObj.aspect === "тригон"
+  );
+
   let arrayUnicalPlanet = [];
 
   for (let i = 0; i < arrayPlanetAspSekstil.length; i += 1) {
@@ -816,10 +820,66 @@ function getArraySail(curArray) {
         const planetTwo = arrayCurSekstil[b].planettwo;
         const planetThree = arrayCurSekstil[c].planettwo;
         if (planetTwo !== planetThree) {
-          console.log("1 - " + planetOne);
-          console.log("2 - " + planetTwo);
-          console.log("3 - " + planetThree);
-          console.log("**********************");
+          let arrayPlanetQual = [];
+
+          const arrayPlaneеTrigonOne = arrayPlanetAspTrigon.filter(
+            (planetObj) => planetObj.planetone === planetTwo
+          );
+
+          const arrayPlaneеTrigonTwo = arrayPlanetAspTrigon.filter(
+            (planetObj) => planetObj.planetone === planetThree
+          );
+
+          for (let n = 0; n < arrayPlaneеTrigonOne.length; n += 1) {
+            for (let k = 0; k < arrayPlaneеTrigonTwo.length; k += 1) {
+              const elOne = arrayPlaneеTrigonOne[n];
+              const elTwo = arrayPlaneеTrigonTwo[k];
+              if (elOne.planettwo === elTwo.planettwo) {
+                if (arrayPlanetQual.length === 0) {
+                  arrayPlanetQual.push(elOne.planettwo);
+                } else {
+                  const elFind = arrayPlanetQual.indexOf(elOne.planettwo);
+                  if (elFind === -1) {
+                    arrayPlanetQual.push(elOne.planettwo);
+                  }
+                }
+              }
+            }
+          }
+
+          const arrayPlaneеTrigonThree = arrayPlanetAspTrigon.filter(
+            (planetObj) => planetObj.planettwo === planetTwo
+          );
+
+          const arrayPlaneеTrigonFour = arrayPlanetAspTrigon.filter(
+            (planetObj) => planetObj.planettwo === planetThree
+          );
+
+          for (let m = 0; m < arrayPlaneеTrigonThree.length; m += 1) {
+            for (let d = 0; d < arrayPlaneеTrigonFour.length; d += 1) {
+              const elOne = arrayPlaneеTrigonThree[m];
+              const elTwo = arrayPlaneеTrigonFour[d];
+              if (elOne.planetone === elTwo.planetone) {
+                if (arrayPlanetQual.length === 0) {
+                  arrayPlanetQual.push(elOne.planetone);
+                } else {
+                  const elFind = arrayPlanetQual.indexOf(elOne.planetone);
+                  if (elFind === -1) {
+                    arrayPlanetQual.push(elOne.planetone);
+                  }
+                }
+              }
+            }
+          }
+
+          for (let q = 0; q < arrayPlanetQual.length; q += 1) {
+            const elOne = arrayPlanetQual[q];
+            console.log("Планета №1 - " + planetOne);
+            console.log("Планета №2 - " + planetTwo);
+            console.log("Планета №3 - " + planetThree);
+            console.log("Планета №4 - " + elOne);
+            console.log("************************");
+          }
         }
       }
     }
