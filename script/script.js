@@ -913,7 +913,10 @@ function getArraySail(curArray) {
               (findTwoVariant !== undefined && findFourVariant !== undefined)
             ) {
               console.log("Парус");
-
+              console.log("Планета №1 - " + planetOne);
+              console.log("Планета №2 - " + planetTwo);
+              console.log("Планета №3 - " + planetThree);
+              console.log("Планета №4 - " + planetFour);
               console.log("*************************");
             }
           }
