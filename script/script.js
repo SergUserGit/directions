@@ -1690,44 +1690,131 @@ function renderDateObiqueSail(arrayObiqueSail) {
 function getArrayObiqueSail(curArray) {
   let totalArray = [];
 
-  for (let i = 0; i < curArray.length; i += 1) {
-    let curElement = curArray[i];
-    if (curElement.aspect === "тригон") {
-      const curPlanet = curElement.planetone;
-      const curPlanetTwo = curElement.planettwo;
-      const arrayPlanetAspOppjz = curArray.filter(
-        (planetObj) =>
-          planetObj.planetone === curPlanet && planetObj.aspect === "оппозиція"
-      );
-      for (let c = 0; c < arrayPlanetAspOppjz.length; c += 1) {
-        const curElOp = arrayPlanetAspOppjz[c];
-        if (curElOp.planettwo !== curPlanetTwo) {
-          const findSecstOne = curArray.find(function (el) {
-            return (
-              el.planetone === curElOp.planettwo &&
-              el.aspect === "cекстиль" &&
-              el.planettwo === curPlanetTwo
-            );
-          });
-          const findSecsTwo = curArray.find(function (el) {
-            return (
-              el.planetone === curPlanetTwo &&
-              el.aspect === "cекстиль" &&
-              el.planettwo === curElOp.planettwo
-            );
-          });
+  const arrayAspectTrigon = curArray.filter(
+    (planetObj) => planetObj.aspect === "тригон"
+  );
 
-          if (findSecstOne !== undefined) {
+  for (let i = 0; i < arrayAspectTrigon.length; i += 1) {
+    let curElement = arrayAspectTrigon[i];
+
+    const curPlanet = curElement.planetone;
+    const curPlanetTwo = curElement.planettwo;
+    const arrayPlanetAspOppjz = curArray.filter(
+      (planetObj) =>
+        planetObj.planetone === curPlanet && planetObj.aspect === "оппозиція"
+    );
+    for (let c = 0; c < arrayPlanetAspOppjz.length; c += 1) {
+      const curElOp = arrayPlanetAspOppjz[c];
+      if (curElOp.planettwo !== curPlanetTwo) {
+        const findSecstOne = curArray.find(function (el) {
+          return (
+            el.planetone === curElOp.planettwo &&
+            el.aspect === "cекстиль" &&
+            el.planettwo === curPlanetTwo
+          );
+        });
+        const findSecsTwo = curArray.find(function (el) {
+          return (
+            el.planetone === curPlanetTwo &&
+            el.aspect === "cекстиль" &&
+            el.planettwo === curElOp.planettwo
+          );
+        });
+
+        if (findSecstOne !== undefined) {
+          const findTrigOne = curArray.find(function (el) {
+            return (
+              el.planetone === findSecstOne.planetone &&
+              el.aspect === "тригон" &&
+              el.planettwo === curPlanet
+            );
+          });
+          const findTrigTwo = curArray.find(function (el) {
+            return (
+              el.planetone === findSecstOne.planettwo &&
+              el.aspect === "оппозиція" &&
+              el.planettwo === curPlanet
+            );
+          });
+          if (findTrigOne !== undefined && findTrigTwo !== undefined) {
+            if (totalArray.length === 0) {
+              const newObj = {
+                planetOne: curPlanet,
+                planetTwo: findTrigOne.planetone,
+                planetThree: findTrigTwo.planetone,
+              };
+              totalArray.push(newObj);
+            } else {
+              const elFoundObique = totalArray.find(function (el) {
+                return (
+                  el.planetOne === curPlanet &&
+                  el.planetTwo === findTrigOne.planetone &&
+                  el.planetThree === findTrigTwo.planetone
+                );
+              });
+              if (elFoundObique === undefined) {
+                const newObj = {
+                  planetOne: curPlanet,
+                  planetTwo: findTrigOne.planetone,
+                  planetThree: findTrigTwo.planetone,
+                };
+                totalArray.push(newObj);
+              }
+            }
+          } else {
+            const findTrigThree = curArray.find(function (el) {
+              return (
+                el.planetone === curPlanet &&
+                el.aspect === "тригон" &&
+                el.planettwo === findSecstOne.planetone
+              );
+            });
+            const findTrigFour = curArray.find(function (el) {
+              return (
+                el.planetone === curPlanet &&
+                el.aspect === "оппозиція" &&
+                el.planettwo === findSecstOne.planettwo
+              );
+            });
+            if (findTrigThree !== undefined && findTrigFour !== undefined) {
+              if (totalArray.length === 0) {
+                const newObj = {
+                  planetOne: curPlanet,
+                  planetTwo: findTrigThree.planettwo,
+                  planetThree: findTrigFour.planettwo,
+                };
+                totalArray.push(newObj);
+              } else {
+                const elFoundObique = totalArray.find(function (el) {
+                  return (
+                    el.planetOne === curPlanet &&
+                    el.planetTwo === findTrigThree.planettwo &&
+                    el.planetThree === findTrigFour.planettwo
+                  );
+                });
+                if (elFoundObique === undefined) {
+                  const newObj = {
+                    planetOne: curPlanet,
+                    planetTwo: findTrigThree.planettwo,
+                    planetThree: findTrigFour.planettwo,
+                  };
+                  totalArray.push(newObj);
+                }
+              }
+            }
+          }
+        } else {
+          if (findSecsTwo !== undefined) {
             const findTrigOne = curArray.find(function (el) {
               return (
-                el.planetone === findSecstOne.planetone &&
+                el.planetone === findSecsTwo.planetone &&
                 el.aspect === "тригон" &&
                 el.planettwo === curPlanet
               );
             });
             const findTrigTwo = curArray.find(function (el) {
               return (
-                el.planetone === findSecstOne.planettwo &&
+                el.planetone === findSecsTwo.planettwo &&
                 el.aspect === "оппозиція" &&
                 el.planettwo === curPlanet
               );
@@ -1762,14 +1849,14 @@ function getArrayObiqueSail(curArray) {
                 return (
                   el.planetone === curPlanet &&
                   el.aspect === "тригон" &&
-                  el.planettwo === findSecstOne.planetone
+                  el.planettwo === findSecsTwo.planetone
                 );
               });
               const findTrigFour = curArray.find(function (el) {
                 return (
                   el.planetone === curPlanet &&
                   el.aspect === "оппозиція" &&
-                  el.planettwo === findSecstOne.planettwo
+                  el.planettwo === findSecsTwo.planettwo
                 );
               });
               if (findTrigThree !== undefined && findTrigFour !== undefined) {
@@ -1799,90 +1886,6 @@ function getArrayObiqueSail(curArray) {
                 }
               }
             }
-          } else {
-            if (findSecsTwo !== undefined) {
-              const findTrigOne = curArray.find(function (el) {
-                return (
-                  el.planetone === findSecsTwo.planetone &&
-                  el.aspect === "тригон" &&
-                  el.planettwo === curPlanet
-                );
-              });
-              const findTrigTwo = curArray.find(function (el) {
-                return (
-                  el.planetone === findSecsTwo.planettwo &&
-                  el.aspect === "оппозиція" &&
-                  el.planettwo === curPlanet
-                );
-              });
-              if (findTrigOne !== undefined && findTrigTwo !== undefined) {
-                if (totalArray.length === 0) {
-                  const newObj = {
-                    planetOne: curPlanet,
-                    planetTwo: findTrigOne.planetone,
-                    planetThree: findTrigTwo.planetone,
-                  };
-                  totalArray.push(newObj);
-                } else {
-                  const elFoundObique = totalArray.find(function (el) {
-                    return (
-                      el.planetOne === curPlanet &&
-                      el.planetTwo === findTrigOne.planetone &&
-                      el.planetThree === findTrigTwo.planetone
-                    );
-                  });
-                  if (elFoundObique === undefined) {
-                    const newObj = {
-                      planetOne: curPlanet,
-                      planetTwo: findTrigOne.planetone,
-                      planetThree: findTrigTwo.planetone,
-                    };
-                    totalArray.push(newObj);
-                  }
-                }
-              } else {
-                const findTrigThree = curArray.find(function (el) {
-                  return (
-                    el.planetone === curPlanet &&
-                    el.aspect === "тригон" &&
-                    el.planettwo === findSecsTwo.planetone
-                  );
-                });
-                const findTrigFour = curArray.find(function (el) {
-                  return (
-                    el.planetone === curPlanet &&
-                    el.aspect === "оппозиція" &&
-                    el.planettwo === findSecsTwo.planettwo
-                  );
-                });
-                if (findTrigThree !== undefined && findTrigFour !== undefined) {
-                  if (totalArray.length === 0) {
-                    const newObj = {
-                      planetOne: curPlanet,
-                      planetTwo: findTrigThree.planettwo,
-                      planetThree: findTrigFour.planettwo,
-                    };
-                    totalArray.push(newObj);
-                  } else {
-                    const elFoundObique = totalArray.find(function (el) {
-                      return (
-                        el.planetOne === curPlanet &&
-                        el.planetTwo === findTrigThree.planettwo &&
-                        el.planetThree === findTrigFour.planettwo
-                      );
-                    });
-                    if (elFoundObique === undefined) {
-                      const newObj = {
-                        planetOne: curPlanet,
-                        planetTwo: findTrigThree.planettwo,
-                        planetThree: findTrigFour.planettwo,
-                      };
-                      totalArray.push(newObj);
-                    }
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -1894,21 +1897,24 @@ function getArrayObiqueSail(curArray) {
 function getArrayBigTrin(curArray) {
   let arrayKvadrat = [];
   let arrayPlanetKvadrat = [];
-  for (let a = 0; a < curArray.length; a += 1) {
-    const curElem = curArray[a];
 
-    if (curElem.aspect === "тригон") {
-      const elFind = arrayPlanetKvadrat.indexOf(curElem.planetone);
-      if (elFind === -1) {
-        arrayPlanetKvadrat.push(curElem.planetone);
-      }
-      const newObj = {
-        planetOne: curElem.planetone,
-        planetTwo: curElem.planettwo,
-      };
-      arrayKvadrat.push(newObj);
+  const arrayAspectTrigon = curArray.filter(
+    (planetObj) => planetObj.aspect === "тригон"
+  );
+
+  for (let f = 0; f < arrayAspectTrigon.length; f += 1) {
+    const curElem = arrayAspectTrigon[f];
+    const elFind = arrayPlanetKvadrat.indexOf(curElem.planetone);
+    if (elFind === -1) {
+      arrayPlanetKvadrat.push(curElem.planetone);
     }
+    const newObj = {
+      planetOne: curElem.planetone,
+      planetTwo: curElem.planettwo,
+    };
+    arrayKvadrat.push(newObj);
   }
+  
 
   let arrayTauAnaliz = [];
 
@@ -2251,20 +2257,22 @@ function renderDateTau(arrayTauKvadrat) {
 function getArraybisekstil(curArray) {
   let arrayKvadrat = [];
   let arrayPlanetKvadrat = [];
-  for (let a = 0; a < curArray.length; a += 1) {
-    const curElem = curArray[a];
 
-    if (curElem.aspect === "cекстиль") {
-      const elFind = arrayPlanetKvadrat.indexOf(curElem.planetone);
-      if (elFind === -1) {
-        arrayPlanetKvadrat.push(curElem.planetone);
-      }
-      const newObj = {
-        planetOne: curElem.planetone,
-        planetTwo: curElem.planettwo,
-      };
-      arrayKvadrat.push(newObj);
+  const arrayAspectSekstil = curArray.filter(
+    (planetObj) => planetObj.aspect === "cекстиль"
+  );
+
+  for (let k = 0; k < arrayAspectSekstil.length; k += 1) {
+    const curElem = arrayAspectSekstil[k];
+    const elFind = arrayPlanetKvadrat.indexOf(curElem.planetone);
+    if (elFind === -1) {
+      arrayPlanetKvadrat.push(curElem.planetone);
     }
+    const newObj = {
+      planetOne: curElem.planetone,
+      planetTwo: curElem.planettwo,
+    };
+    arrayKvadrat.push(newObj);
   }
 
   let arrayTauAnaliz = [];
@@ -2485,20 +2493,22 @@ function getArraybisekstil(curArray) {
 function getArrayTau(curArray) {
   let arrayKvadrat = [];
   let arrayPlanetKvadrat = [];
-  for (let a = 0; a < curArray.length; a += 1) {
-    const curElem = curArray[a];
 
-    if (curElem.aspect === "квадратура") {
-      const elFind = arrayPlanetKvadrat.indexOf(curElem.planetone);
-      if (elFind === -1) {
-        arrayPlanetKvadrat.push(curElem.planetone);
-      }
-      const newObj = {
-        planetOne: curElem.planetone,
-        planetTwo: curElem.planettwo,
-      };
-      arrayKvadrat.push(newObj);
+  const arrayAspectKvadrat = curArray.filter(
+    (planetObj) => planetObj.aspect === "квадратура"
+  );
+
+  for (let n = 0; n < arrayAspectKvadrat.length; n += 1) {
+    const curElem = arrayAspectKvadrat[n];
+    const elFind = arrayPlanetKvadrat.indexOf(curElem.planetone);
+    if (elFind === -1) {
+      arrayPlanetKvadrat.push(curElem.planetone);
     }
+    const newObj = {
+      planetOne: curElem.planetone,
+      planetTwo: curElem.planettwo,
+    };
+    arrayKvadrat.push(newObj);
   }
 
   let arrayTauAnaliz = [];
