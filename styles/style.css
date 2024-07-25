@@ -552,6 +552,46 @@ li {
   }
 }
 
+.title-sail {
+  text-align: center;
+  color: #3d072f;
+  letter-spacing: 0.2em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 1200px) {
+  .title-sail {
+    font-size: 90px;
+    line-height: 10%;
+    margin-bottom: 90px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .title-sail {
+    font-size: 22px;
+    line-height: 38%;
+    margin-bottom: 42px;
+  }
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .title-sail {
+    font-size: 33px;
+    line-height: 26%;
+    margin-bottom: 48px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .title-sail {
+    font-size: 59px;
+    line-height: 16%;
+    margin-bottom: 66px;
+  }
+}
 
 .title-trapecia {
   text-align: center;
@@ -594,7 +634,7 @@ li {
   }
 }
 
-/*title-trapecia*/
+
 
 .tau-kvadrat-list {
   display: flex;
@@ -650,6 +690,15 @@ li {
   gap: 30px;
 }
 
+.sail-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 30px;
+}
+
 .bigsquare-list {
   display: flex;
   flex-direction: column;
@@ -668,6 +717,41 @@ li {
 }
 
 
+
+.sail-paragh {
+  color: rgb(48, 33, 180);
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1200px) {
+  .sail-paragh {
+    font-size: 40px;
+    line-height: 125%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .sail-paragh {
+    font-size: 36px;
+    line-height: 125%;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .sail-paragh {
+    font-size: 24px;
+    line-height: 185%;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .sail-paragh {
+    font-size: 15px;
+    line-height: 278%;
+  }
+}
 
 .trapecia-paragh {
   color: rgb(61, 15, 50);

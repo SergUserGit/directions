@@ -11,6 +11,7 @@ const titleObiquesail = document.querySelector(".title-obiquesail");
 const titleCart = document.querySelector(".title-cart");
 const tutleBigSquare = document.querySelector(".title-bigsquare");
 const titleTrapecia = document.querySelector(".title-trapecia");
+const titleSail = document.querySelector(".title-sail");
 
 const countOfYearInput = document.querySelector(".input-count-year");
 const planetMarsInput = document.querySelector("#aspect-mars");
@@ -766,11 +767,56 @@ function myFuncClick(evnt) {
   renderDateTrapecia(arrayTrapecia);
 
   const arraySail = getArraySail(curArray);
-
+  renderDateSail(arraySail);
   //Конфігурації
 }
 
+function renderDateSail(arraySail) {
+  if (arraySail.length === 0) {
+    titleSail.textContent = "";
+    titleSail.style.marginBottom = "0px";
+  } else {
+    titleSail.textContent = "Паруси";
+    titleSail.style.marginBottom = getMarginTitle();
+  }
+
+  const newElemetsTau = document.querySelectorAll(".sail-list > li");
+  for (const element of newElemetsTau) {
+    element.remove();
+  }
+
+  const listTauKvadrat = document.querySelector(".sail-list");
+
+  if (arraySail.length === 0) {
+    listTauKvadrat.style.marginBottom = "0px";
+  } else {
+    listTauKvadrat.style.marginBottom = "60px";
+  }
+
+  if (arraySail.length !== 0) {
+    for (let i = 0; i < arraySail.length; i += 1) {
+      const curElement = arraySail[i];
+      let itemTau = document.createElement("li");
+      itemTau.classList.add("sail-item");
+      listTauKvadrat.append(itemTau);
+      let paragTau = document.createElement("p");
+      paragTau.classList.add("sail-paragh");
+      paragTau.textContent =
+        curElement.planetOne +
+        " - " +
+        curElement.planetTwo +
+        " - " +
+        curElement.planetThree +
+        " - " +
+        curElement.planetFour;
+      itemTau.append(paragTau);
+    }
+  }
+}
+
 function getArraySail(curArray) {
+  let totalArray = [];
+
   const arrayPlanetAspSekstil = curArray.filter(
     (planetObj) => planetObj.aspect === "cекстиль"
   );
@@ -912,18 +958,21 @@ function getArraySail(curArray) {
                 findThreeVariant !== undefined) ||
               (findTwoVariant !== undefined && findFourVariant !== undefined)
             ) {
-              console.log("Парус");
-              console.log("Планета №1 - " + planetOne);
-              console.log("Планета №2 - " + planetTwo);
-              console.log("Планета №3 - " + planetThree);
-              console.log("Планета №4 - " + planetFour);
-              console.log("*************************");
+              pushElementsToArrayTrapecia(
+                totalArray,
+                planetOne,
+                planetTwo,
+                planetThree,
+                planetFour
+              );
             }
           }
         }
       }
     }
   }
+
+  return totalArray;
 }
 
 function renderDateTrapecia(arrayTrapecia) {
@@ -1914,7 +1963,6 @@ function getArrayBigTrin(curArray) {
     };
     arrayKvadrat.push(newObj);
   }
-  
 
   let arrayTauAnaliz = [];
 
