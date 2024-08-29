@@ -1,6 +1,11 @@
 const myButton = document.querySelector(".calc-button");
 myButton.addEventListener("click", myFuncClick);
 
+const buttonFillById = document.querySelector(".button-id-fill");
+buttonFillById.addEventListener("click", funckClickById);
+
+const inputById = document.querySelector("#id-input");
+
 const dbInput = document.querySelector("#date-bd");
 const dbEventInput = document.querySelector("#date-event");
 
@@ -141,6 +146,185 @@ const planetLilitHoursInput = document.querySelector("#aspect-hours-lilit");
 const planetNodeInput = document.querySelector("#aspect-node");
 const planetNodeDegrInput = document.querySelector("#aspect-degr-node");
 const planetNodeHoursInput = document.querySelector("#aspect-hours-node");
+
+function funckClickById(evnt) {
+  evnt.preventDefault();
+  const currentId = inputById.value.trim();
+  if (currentId === "") {
+    alert("Заповніть ID");
+    return;
+  }
+  fillDateById(currentId);
+}
+
+function fillDateById(curId) {
+  const objPlanetResponse = getPromiseFetch(curId);
+  objPlanetResponse.then(displayData).catch((error) => {
+    alert("Виникла помилка - " + error.message);
+  });
+}
+
+function getValueByZnZodiak(znZod) {
+  if (znZod === "Овен") {
+    return 1;
+  } else if (znZod === "Тілець") {
+    return 2;
+  } else if (znZod === "Близнюки") {
+    return 3;
+  } else if (znZod === "Рак") {
+    return 4;
+  } else if (znZod === "Лев") {
+    return 5;
+  } else if (znZod === "Діва") {
+    return 6;
+  } else if (znZod === "Терези") {
+    return 7;
+  } else if (znZod === "Скорпіон") {
+    return 8;
+  } else if (znZod === "Стрілець") {
+    return 9;
+  } else if (znZod === "Козеріг") {
+    return 10;
+  } else if (znZod === "Водолій") {
+    return 11;
+  } else {
+    return 12;
+  }
+}
+
+function fillDateInForm(data) {
+  planetSunDegrInput.value = data.degrSun;
+  planetSunHoursInput.value = data.hoursSun;
+  planetSunInput.value = getValueByZnZodiak(data.znakSun);
+
+  planetMonDegrInput.value = data.degrMoon;
+  planetMonHoursInput.value = data.hoursMoon;
+  planetMonInput.value = getValueByZnZodiak(data.znakMoon);
+
+  planetMerkDegrInput.value = data.degrMerk;
+  planetMerkHoursInput.value = data.hoursMerk;
+  planetMerkInput.value = getValueByZnZodiak(data.znakMerk);
+
+  planetVenerDegrInput.value = data.degrVener;
+  planetVenerHoursInput.value = data.hoursVener;
+  planetVenerInput.value = getValueByZnZodiak(data.znakVener);
+
+  planetMarsDegrInput.value = data.degrMars;
+  planetMarsHoursInput.value = data.hoursMars;
+  planetMarsInput.value = getValueByZnZodiak(data.znakMars);
+
+  planetSaturnDegrInput.value = data.degrSaturn;
+  planetSaturnHoursInput.value = data.hoursSaturn;
+  planetSaturnInput.value = getValueByZnZodiak(data.znakSaturn);
+
+  planetUpiterDegrInput.value = data.degrYupiter;
+  planetUpiterHoursInput.value = data.hoursYupiter;
+  planetUpiterInput.value = getValueByZnZodiak(data.znakYupiter);
+
+  planetNeptunDegrInput.value = data.degrNeptun;
+  planetNeptunHoursInput.value = data.hoursNeptun;
+  planetNeptnunInput.value = getValueByZnZodiak(data.znakNeptun);
+
+  planetUranDegrInput.value = data.degrUran;
+  planetUranHoursInput.value = data.hoursUran;
+  planetUranInput.value = getValueByZnZodiak(data.znakUran);
+
+  planetPlutonDegrInput.value = data.degrPluton;
+  planetPlutonHoursInput.value = data.hoursPluton;
+  planetPlutonInput.value = getValueByZnZodiak(data.znakPluton);
+}
+
+function displayData(data) {
+  if (data.message !== undefined) {
+    alert("Помилка: " + data.message);
+  } else {
+    fillDateInForm(data);
+    /*  {
+    "id": "serg671986",
+    "znakSun": "Рак",
+    "degrSun": 13,
+    "hoursSun": 57,
+    "znakMoon": "Рак",
+    "degrMoon": 4,
+    "hoursMoon": 9,
+    "znakMerk": "Лев",
+    "degrMerk": 5,
+    "hoursMerk": 56,
+    "znakVener": "Лев",
+    "degrVener": 23,
+    "hoursVener": 52,
+    "znakMars": "Козеріг",
+    "degrMars": 18,
+    "hoursMars": 48,
+    "znakSaturn": "Стрілець",
+    "degrSaturn": 3,
+    "hoursSaturn": 51,
+    "znakYupiter": "Риби",
+    "degrYupiter": 22,
+    "hoursYupiter": 47,
+    "znakNeptun": "Козеріг",
+    "degrNeptun": 4,
+    "hoursNeptun": 9,
+    "znakUran": "Стрілець",
+    "degrUran": 19,
+    "hoursUran": 24,
+    "znakPluton": "Скорпіон",
+    "degrPluton": 4,
+    "hoursPluton": 33,
+    "znakHouseOne": "Діва",
+    "degrHouseOne": 16,
+    "hoursHouseOne": 17,
+    "znakHouseTwo": "Терези",
+    "degrHouseTwo": 8,
+    "hoursHouseTwo": 10,
+    "znakHouseThree": "Скорпіон",
+    "degrHouseThree": 6,
+    "hoursHouseThree": 29,
+    "znakHouseFour": "Стрілець",
+    "degrHouseFour": 11,
+    "hoursHouseFour": 49,
+    "znakHouseFive": "Козеріг",
+    "degrHouseFive": 19,
+    "hoursHouseFive": 18,
+    "znakHouseSix": "Водолій",
+    "degrHouseSix": 21,
+    "hoursHouseSix": 0,
+    "znakHouseSeven": "Риби",
+    "degrHouseSeven": 16,
+    "hoursHouseSeven": 17,
+    "znakHouseEight": "Овен",
+    "degrHouseEight": 8,
+    "hoursHouseEight": 10,
+    "znakHouseNine": "Тілець",
+    "degrHouseNine": 6,
+    "hoursHouseNine": 29,
+    "znakHouseTen": "Близнюки",
+    "degrHouseTen": 11,
+    "hoursHouseTen": 49,
+    "znakHouseElewen": "Рак",
+    "degrHouseElewen": 19,
+    "hoursHouseElewen": 18,
+    "znakHouseTwelve": "Лев",
+    "degrHouseTwelve": 21,
+    "hoursHouseTwelve": 0,
+    "znakHouseLilit": "Близнюки",
+    "degrHouseLilit": 14,
+    "hoursHouseLilit": 19,
+    "znakHouseLunarNode": "Овен",
+    "degrHouseLunarNode": 26,
+    "hoursHouseLunarNode": 47
+}*/
+  }
+}
+
+function getPromiseFetch(cur_id) {
+  const URL_PLANET =
+    "https://testnode-planets-project.onrender.com/api/planets/";
+  const full_address = URL_PLANET + cur_id;
+  return fetch(full_address).then((response) => {
+    return response.json();
+  });
+}
 
 function myFuncClick(evnt) {
   evnt.preventDefault();
