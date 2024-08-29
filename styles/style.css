@@ -1248,6 +1248,51 @@ li {
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .input-id {
+    width: 450px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .input-id {
+    width: 350px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .input-id {
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .input-id {
+    width: 240px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .group-fill-id {
+    gap: 15px;
+  }
+}
+
+
+.button-id-fill {
+  border: none;
+  padding: 25px;
+  cursor: pointer;
+  background-color: #23adba;
+  color: rgb(63, 61, 75);
+  font-weight: 700;
+  font-size: 24px;
+  width: 240px;
+  border-radius: 10px;
+  border: 2px solid #c32ca5;
+  box-shadow: 15px 10px 10px rgb(32, 38, 51);
+}
+
 @media screen and (min-width: 320px) and (max-width: 479px) {
   .directions-list {
     display: flex;
