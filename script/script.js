@@ -232,6 +232,62 @@ function fillDateInForm(data) {
   planetPlutonDegrInput.value = data.degrPluton;
   planetPlutonHoursInput.value = data.hoursPluton;
   planetPlutonInput.value = getValueByZnZodiak(data.znakPluton);
+
+  planetHouseOneDegrInput.value = data.degrHouseOne;
+  planetHouseOneHoursInput.value = data.hoursHouseOne;
+  planetHouseOneInput.value = getValueByZnZodiak(data.znakHouseOne);
+
+  planetHouseTwoDegrInput.value = data.degrHouseTwo;
+  planetHouseTwoHoursInput.value = data.hoursHouseTwo;
+  planetHouseTwoInput.value = getValueByZnZodiak(data.znakHouseTwo);
+
+  planetHouseThreeDegrInput.value = data.degrHouseThree;
+  planetHouseThreeHoursInput.value = data.hoursHouseThree;
+  planetHouseThreeInput.value = getValueByZnZodiak(data.znakHouseThree);
+
+  planetHouseFourDegrInput.value = data.degrHouseFour;
+  planetHouseFourHoursInput.value = data.hoursHouseFour;
+  planetHouseFourInput.value = getValueByZnZodiak(data.znakHouseFour);
+
+  planetHouseFiveDegrInput.value = data.degrHouseFive;
+  planetHouseFiveHoursInput.value = data.hoursHouseFive;
+  planetHouseFiveInput.value = getValueByZnZodiak(data.znakHouseFive);
+
+  planetHouseSixDegrInput.value = data.degrHouseSix;
+  planetHouseSixHoursInput.value = data.hoursHouseSix;
+  planetHouseSixInput.value = getValueByZnZodiak(data.znakHouseSix);
+
+  planetHouseSevenDegrInput.value = data.degrHouseSeven;
+  planetHouseSevenHoursInput.value = data.hoursHouseSeven;
+  planetHouseSevenInput.value = getValueByZnZodiak(data.znakHouseSeven);
+
+  planetHouseEightDegrInput.value = data.degrHouseEight;
+  planetHouseEightHoursInput.value = data.hoursHouseEight;
+  planetHouseEightInput.value = getValueByZnZodiak(data.znakHouseEight);
+
+  planetHouseNineDegrInput.value = data.degrHouseNine;
+  planetHouseNineHoursInput.value = data.hoursHouseNine;
+  planetHouseNineInput.value = getValueByZnZodiak(data.znakHouseNine);
+
+  planetHouseTenDegrInput.value = data.degrHouseTen;
+  planetHouseTenHoursInput.value = data.hoursHouseTen;
+  planetHouseTenInput.value = getValueByZnZodiak(data.znakHouseTen);
+
+  planetHouseElewenDegrInput.value = data.degrHouseElewen;
+  planetHouseElewenHoursInput.value = data.hoursHouseElewen;
+  planetHouseElewenInput.value = getValueByZnZodiak(data.znakHouseElewen);
+
+  planetHouseTweleveDegrInput.value = data.degrHouseTwelve;
+  planetHouseTweleveHoursInput.value = data.hoursHouseTwelve;
+  planetHouseTweleveInput.value = getValueByZnZodiak(data.znakHouseTwelve);
+
+  planetLilitDegrInput.value = data.degrHouseLilit;
+  planetLilitHoursInput.value = data.hoursHouseLilit;
+  planetLilitInput.value = getValueByZnZodiak(data.znakHouseLilit);
+
+  planetNodeDegrInput.value = data.degrHouseLunarNode;
+  planetNodeHoursInput.value = data.hoursHouseLunarNode;
+  planetNodeInput.value = getValueByZnZodiak(data.znakHouseLunarNode);
 }
 
 function displayData(data) {
@@ -239,50 +295,6 @@ function displayData(data) {
     alert("Помилка: " + data.message);
   } else {
     fillDateInForm(data);
-    /*  {
-    "znakHouseOne": "Діва",
-    "degrHouseOne": 16,
-    "hoursHouseOne": 17,
-    "znakHouseTwo": "Терези",
-    "degrHouseTwo": 8,
-    "hoursHouseTwo": 10,
-    "znakHouseThree": "Скорпіон",
-    "degrHouseThree": 6,
-    "hoursHouseThree": 29,
-    "znakHouseFour": "Стрілець",
-    "degrHouseFour": 11,
-    "hoursHouseFour": 49,
-    "znakHouseFive": "Козеріг",
-    "degrHouseFive": 19,
-    "hoursHouseFive": 18,
-    "znakHouseSix": "Водолій",
-    "degrHouseSix": 21,
-    "hoursHouseSix": 0,
-    "znakHouseSeven": "Риби",
-    "degrHouseSeven": 16,
-    "hoursHouseSeven": 17,
-    "znakHouseEight": "Овен",
-    "degrHouseEight": 8,
-    "hoursHouseEight": 10,
-    "znakHouseNine": "Тілець",
-    "degrHouseNine": 6,
-    "hoursHouseNine": 29,
-    "znakHouseTen": "Близнюки",
-    "degrHouseTen": 11,
-    "hoursHouseTen": 49,
-    "znakHouseElewen": "Рак",
-    "degrHouseElewen": 19,
-    "hoursHouseElewen": 18,
-    "znakHouseTwelve": "Лев",
-    "degrHouseTwelve": 21,
-    "hoursHouseTwelve": 0,
-    "znakHouseLilit": "Близнюки",
-    "degrHouseLilit": 14,
-    "hoursHouseLilit": 19,
-    "znakHouseLunarNode": "Овен",
-    "degrHouseLunarNode": 26,
-    "hoursHouseLunarNode": 47
-}*/
   }
 }
 
