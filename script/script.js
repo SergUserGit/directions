@@ -299,8 +299,7 @@ function displayData(data) {
 }
 
 function getPromiseFetch(cur_id) {
-  const URL_PLANET =
-    "https://testnode-planets-project.onrender.com/api/planets/";
+  const URL_PLANET = "https://planets-project-base.onrender.com/api/planets/";
   const full_address = URL_PLANET + cur_id;
   return fetch(full_address).then((response) => {
     return response.json();
